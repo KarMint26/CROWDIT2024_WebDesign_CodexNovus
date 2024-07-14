@@ -1,9 +1,11 @@
 import React from "react";
+import { LongIcon } from "../utils";
 
 const Home = () => {
   return (
     <React.Fragment>
-      <div className="font-semibold text-3xl text-red-500">Home</div>
+      <img src={LongIcon} alt="long-icon" />
+      <div className="font-semibold text-3xl">Home</div>
     </React.Fragment>
   );
 };

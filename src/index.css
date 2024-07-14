@@ -9,3 +9,8 @@ body,
 * {
   @apply font-primary;
 }
+
+body,
+html {
+  @apply bg-BgPrimary text-white;
+}
