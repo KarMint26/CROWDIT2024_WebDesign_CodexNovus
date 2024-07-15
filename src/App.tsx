@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import DreamJournal from "./pages/DreamJournal";
 import Soundscapes from "./pages/Soundscapes";
 import Breathing from "./pages/Breathing";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         <Route path="/dream-journal" element={<DreamJournal />} />
         <Route path="/soundscapes" element={<Soundscapes />} />
         <Route path="/breathing" element={<Breathing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </React.Fragment>
   );
