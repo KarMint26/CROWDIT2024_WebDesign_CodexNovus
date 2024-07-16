@@ -16,7 +16,7 @@ export default function ListItem({
     <React.Fragment>
       <Link
         to={href}
-        className={`flex justify-center items-center gap-3 transition duration-300 font-semibold ease-in-out hover:text-white group hover:bg-mainColor focus:text-white focus:bg-mainColor active:text-white active:bg-mainColor rounded-full p-3 border-2 outline-none ${
+        className={`flex justify-center items-center gap-3 transition duration-300 font-semibold ease-in-out hover:text-white group hover:bg-mainColor hover:border-secondaryColor focus:text-white focus:bg-mainColor active:text-white active:bg-mainColor rounded-full p-3 border-2 outline-none ${
           activeLink === href.split("/").pop()
             ? "text-white bg-mainColor border-secondaryColor"
             : "text-[#dadada]"
