@@ -7,7 +7,7 @@ import Breathing from "./pages/Breathing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/custom/Navbar";
-import DefaultView from "./components/custom/DefaultView";
+import Footer from "./components/custom/Footer";
 
 const App = () => {
   const location = useLocation();
@@ -16,16 +16,15 @@ const App = () => {
   return (
     <React.Fragment>
       {pathname === "login" || pathname === "register" ? "" : <Navbar />}
-      <DefaultView>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dream-journal" element={<DreamJournal />} />
-          <Route path="/soundscapes" element={<Soundscapes />} />
-          <Route path="/breathing" element={<Breathing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </DefaultView>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dream-journal" element={<DreamJournal />} />
+        <Route path="/soundscapes" element={<Soundscapes />} />
+        <Route path="/breathing" element={<Breathing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      {pathname === "login" || pathname === "register" ? "" : <Footer />}
     </React.Fragment>
   );
 };

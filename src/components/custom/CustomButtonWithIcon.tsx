@@ -9,6 +9,7 @@ type customBtn = {
   bordercolor: string;
   icon: any;
   customclass?: string;
+  onhandleclick?: any;
 };
 
 const CustomButtonWithIcon = ({
@@ -18,13 +19,15 @@ const CustomButtonWithIcon = ({
   bgcolor,
   textcolor,
   icon,
-  customclass
+  customclass,
+  onhandleclick,
 }: customBtn) => {
   return (
     <React.Fragment>
       <Link
-        className={`flex justify-center items-center gap-2 text-[0.8rem] sm:text-base font-semibold ${textcolor} ${bordercolor} ${bgcolor} rounded-full px-3 sm:px-4 py-2 border-2 ${customclass}`}
+        className={`flex justify-center items-center gap-2 text-[0.85rem] sm:text-base lg:text-[1.1rem] font-semibold ${textcolor} ${bordercolor} ${bgcolor} rounded-full px-4 sm:px-5 py-2 border-2 ${customclass}`}
         to={path}
+        onClick={onhandleclick}
       >
         {icon}
         {text}
