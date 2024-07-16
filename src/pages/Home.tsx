@@ -35,7 +35,7 @@ const Home = () => {
               <CustomButtonWithIcon
                 text="Explore More"
                 icon={<IoRocket />}
-                bgcolor="bg-ColorColor"
+                bgcolor="bg-mainColor"
                 textcolor="text-white"
                 bordercolor="border-secondaryColor"
                 path="#trydj"
