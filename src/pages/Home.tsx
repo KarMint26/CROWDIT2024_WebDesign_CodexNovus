@@ -1,11 +1,23 @@
+import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
 import React from "react";
-import { LongIcon } from "../utils";
+import { FaMapPin } from "react-icons/fa6";
 
 const Home = () => {
   return (
     <React.Fragment>
-      <img src={LongIcon} alt="long-icon" />
-      <div className="font-semibold text-3xl">Home</div>
+      <div className="w-full h-fit">
+        <div>
+          <CustomButtonWithIcon
+            text="Explore More"
+            icon={<FaMapPin />}
+            bgcolor="bg-mainColor"
+            textcolor="text-white"
+            bordercolor="border-secondaryColor"
+            path="#"
+            customclass="w-[9rem] sm:w-[11rem]"
+          />
+        </div>
+      </div>
     </React.Fragment>
   );
 };
