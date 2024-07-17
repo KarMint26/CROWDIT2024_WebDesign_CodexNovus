@@ -1,0 +1,32 @@
+{
+    "theme_color": "#A84DB5",
+    "background_color": "#020817",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/",
+    "name": "NOCTURN",
+    "short_name": "NOCTURN",
+    "description": "Nocturn is an Web app designed to help you improve your sleep.       With a range of innovative features, Nocturn becomes a loyal       companion on your journey to a deeper and more refreshing sleep.",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
