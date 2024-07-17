@@ -25,7 +25,7 @@ const Home = () => {
             <div className="flex flex-col gap-2 sm:gap-3">
               <h1 className="font-bold text-2xl sm:text-4xl lg:text-6xl">
                 Improve Your Sleep Quality with{" "}
-                <span className="text-ColorColor">Nocturn</span>
+                <span className="text-mainColor">Nocturn</span>
               </h1>
               <p className="text-sm md:text-base lg:text-[1.25rem]">
                 Nocturn is an Web app designed to help you improve your sleep.
