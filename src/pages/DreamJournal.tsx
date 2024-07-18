@@ -106,7 +106,7 @@ const DreamJournal = () => {
                 selected={dreamDate}
                 locale={id}
                 dateFormat={"dd/MM/yyyy"}
-                className="px-5 py-3 text-black mt-5 w-fit rounded-xl bg-slate-200"
+                className="px-5 py-3 text-black mt-5 w-full lg:w-fit rounded-xl bg-slate-200"
                 onChange={(date: Date | null) =>
                   setDreamDate(date || new Date())
                 }
