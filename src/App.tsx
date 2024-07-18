@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/custom/Navbar";
 import Footer from "./components/custom/Footer";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 const App = () => {
   const location = useLocation();
@@ -15,16 +16,18 @@ const App = () => {
 
   return (
     <React.Fragment>
-      {pathname === "login" || pathname === "register" ? "" : <Navbar />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dream-journal" element={<DreamJournal />} />
-        <Route path="/soundscapes" element={<Soundscapes />} />
-        <Route path="/breathing" element={<Breathing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-      {pathname === "login" || pathname === "register" ? "" : <Footer />}
+      <AuthContextProvider>
+        {pathname === "login" || pathname === "register" ? "" : <Navbar />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dream-journal" element={<DreamJournal />} />
+          <Route path="/soundscapes" element={<Soundscapes />} />
+          <Route path="/breathing" element={<Breathing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        {pathname === "login" || pathname === "register" ? "" : <Footer />}
+      </AuthContextProvider>
     </React.Fragment>
   );
 };

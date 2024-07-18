@@ -1,5 +1,6 @@
 import CustomInput from "@/components/auth/CustomInput";
 import CustomButton from "@/components/custom/CustomButton";
+import { UserAuth } from "@/contexts/AuthContext";
 import { HeroAuth, LongIcon } from "@/utils";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -11,6 +12,8 @@ const Register = () => {
   const [password, setPassword] = React.useState<string>("");
   const [passwordConfirmation, setPasswordConfirmation] =
     React.useState<string>("");
+
+  const { googleSignIn } = UserAuth();
 
   return (
     <React.Fragment>
@@ -33,7 +36,7 @@ const Register = () => {
             <h1 className="font-semibold text-xl sm:text-2xl text-[#EEEEEE] mb-2">
               Sleep With Nocturn
             </h1>
-            <div className="input-custom w-full hover:border-mainColor border-4 transition duration-300 rounded-3xl bg-[#EEEEEE] justify-center items-center relative px-5 py-3 text-black text-center cursor-pointer">
+            <div onClick={() => googleSignIn()} className="input-custom w-full hover:border-mainColor border-4 transition duration-300 rounded-3xl bg-[#EEEEEE] justify-center items-center relative px-5 py-3 text-black text-center cursor-pointer">
               <FcGoogle className="text-3xl absolute left-3 top-[50%] -translate-y-[50%]" />
               Register With Google
             </div>
