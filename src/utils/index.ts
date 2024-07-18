@@ -8,6 +8,8 @@ import heroDJ from "/assets/djpage/hero.png";
 import dj from "/assets/djpage/dj.png";
 import WaveBlack from "/assets/homepage/wave-1.png";
 import WavePurple from "/assets/homepage/wave-2.png";
+import HeroAuth from "/assets/auth/hero-auth.png";
+import HeroAuth2 from "/assets/auth/hero-auth2.png";
 
 export {
   LongIcon,
@@ -20,4 +22,6 @@ export {
   WavePurple,
   heroDJ,
   dj,
+  HeroAuth,
+  HeroAuth2,
 };

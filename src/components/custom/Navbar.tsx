@@ -127,7 +127,7 @@ const Navbar = () => {
         <div className="side-menu flex justify-center items-center space-x-3 lg:space-x-5">
           <CustomButton
             text="Register Now"
-            path="/login"
+            path="/register"
             bgcolor="bg-white"
             bordercolor="border-secondaryColor"
             textcolor="text-mainColor"
