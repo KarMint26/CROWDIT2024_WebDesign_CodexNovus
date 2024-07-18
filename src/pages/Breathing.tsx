@@ -1,10 +1,22 @@
-import React from "react";
+import BAudios from "@/components/Breathing/BAudios";
+import BHero from "@/components/Breathing/BHero";
+import BTutorial from "@/components/Breathing/BTutorial";
+import DefaultView from "@/components/custom/DefaultView";
 
 const Breathing = () => {
   return (
-    <React.Fragment>
-      <div>Breathing</div>
-    </React.Fragment>
+    <div className="w-full relative">
+      <DefaultView>
+        {/* section  hero */}
+        <BHero />
+
+        {/* section tutorial */}
+        <BTutorial />
+
+        {/* section audio */}
+        <BAudios />
+      </DefaultView>
+    </div>
   );
 };
 

@@ -5,6 +5,8 @@ import heroHomepage2 from "/assets/homepage/homepage-2.png";
 import heroHomepage3 from "/assets/homepage/homepage-3.png";
 import heroHomepage4 from "/assets/homepage/homepage-4.png";
 import heroDJ from "/assets/djpage/hero.png";
+import heroB from "/assets/bpage/hero.png";
+import tutorB from "/assets/bpage/tutor.png";
 import dj from "/assets/djpage/dj.png";
 import WaveBlack from "/assets/homepage/wave-1.png";
 import WavePurple from "/assets/homepage/wave-2.png";
@@ -20,4 +22,6 @@ export {
   WavePurple,
   heroDJ,
   dj,
+  heroB,
+  tutorB,
 };
