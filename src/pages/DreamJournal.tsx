@@ -14,6 +14,8 @@ import DJHero from "@/components/DreamJournal/DJHero";
 import DJHistory from "@/components/DreamJournal/DJHistory";
 import convertDate from "@/utils/convertDate";
 import axios from "axios";
+import { Toaster } from "@/components/ui/toaster";
+import { useToast } from "@/components/ui/use-toast";
 
 const DreamJournal = () => {
   const [dreamDate, setDreamDate] = useState<Date>(new Date());
@@ -22,6 +24,7 @@ const DreamJournal = () => {
   const [dataDream, setDataDream] = useState<TypeDataDream>(
     listDreamInterpretations[0]
   );
+  const { toast } = useToast();
   const [valeuInput, setValeuInput] = useState<string>("");
   let options = {
     method: "POST",
@@ -118,7 +121,19 @@ const DreamJournal = () => {
                 textcolor="text-white"
                 bordercolor="border-secondaryColor"
                 path="#"
-                onhandleclick={handleInterpretation}
+                onhandleclick={() => {
+                  if (!loading && valeuInput.length > 10) {
+                    handleInterpretation();
+                  }
+                  if (valeuInput === "") {
+                    toast({
+                      title: "System Warning!",
+                      description:
+                        "Please write down your dream before click button get interpretation, please try again!",
+                      variant: "destructive",
+                    });
+                  }
+                }}
                 customclass="w-fit mt-5"
               />
             </div>
@@ -134,6 +149,7 @@ const DreamJournal = () => {
           handleClick={() => setShowModal(false)}
         />
       )}
+      <Toaster />
     </div>
   );
 };
