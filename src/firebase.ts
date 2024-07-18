@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCVgfCy7C-VLCsfqXppNCxyJ-QslC5Thtw",
-  authDomain: "nocturn-5cf4a.firebaseapp.com",
-  projectId: "nocturn-5cf4a",
-  storageBucket: "nocturn-5cf4a.appspot.com",
-  messagingSenderId: "1013465869398",
-  appId: "1:1013465869398:web:d5b87d171ae35dc1175ff7"
+  apiKey: import.meta.env.FIREBASE_APIKEY,
+  authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.FIREBASE_PROJECTID,
+  storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.FIREBASE_MSGID,
+  appId: import.meta.env.FIREBASE_APPID
 };
 
 // Initialize Firebase
