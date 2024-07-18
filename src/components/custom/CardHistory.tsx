@@ -9,11 +9,11 @@ type TypeHistory = {
 };
 
 function CardHistory({ id, date, dream, handleClick }: TypeHistory) {
-  const text = dream.slice(0, 170);
+  const text = dream.slice(0, 210);
   return (
     <div
       key={id}
-      className="bg-slate-200 w-full max-w-2xl p-5 rounded-2xl shadow-xl shadow-mainColor/70 hover:shadow-mainColor"
+      className="bg-slate-200 w-full max-w-xl p-5 rounded-2xl shadow-xl shadow-mainColor/70 hover:shadow-mainColor"
     >
       <div className="flex pb-3 border-b-2 justify-between border-b-slate-300 gap-5 items-center">
         <div className="flex items-center text-slate-500">
@@ -28,7 +28,9 @@ function CardHistory({ id, date, dream, handleClick }: TypeHistory) {
           Interpretation
         </button>
       </div>
-      <p className="text-slate-500 mt-4">{text}...</p>
+      <p className="text-slate-500 mt-4">
+        {dream.length > 210 ? text + "..." : dream}
+      </p>
     </div>
   );
 }

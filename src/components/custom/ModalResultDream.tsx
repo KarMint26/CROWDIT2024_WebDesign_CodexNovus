@@ -15,7 +15,7 @@ type TypeModal = {
 function ModalResultDream({ interpret, handleClick }: TypeModal) {
   return (
     <div className="w-full h-screen bg-slate-800 p-5 fixed top-0 z-[9999] flex items-center justify-center">
-      <div className="w-full max-w-6xl m-auto rounded-xl bg-bgPurpleDark p-10">
+      <div className="w-full max-w-6xl m-auto rounded-xl bg-bgPurpleDark p-10 overflow-y-auto">
         <div className="flex justify-center text-center items-center bg-white/50 px-5 py-5 rounded-xl">
           <TextTitle>
             <FaClipboardList className="inline mr-5" />
