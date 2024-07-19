@@ -26,6 +26,10 @@ const Navbar = () => {
     setAvatarUrl(`https://api.multiavatar.com/${Math.random()}.png`);
   }, []);
 
+  useEffect(() => {
+    setOpenProfile(false);
+  }, [activeLink]);
+
   const handleLogout = async () => {
     try {
       await logOut();

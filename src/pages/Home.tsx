@@ -21,6 +21,7 @@ const Home = () => {
     AOS.init({
       once: true,
       duration: 1500,
+      offset: 200,
     });
   }, []);
 
@@ -69,7 +70,7 @@ const Home = () => {
               src={heroHomepage1}
               alt="hero-landing-page"
               className="w-auto sm:w-[600px]"
-              data-aos="fade-left"
+              data-aos="fade-up"
             />
           </div>
         </div>
