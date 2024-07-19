@@ -38,7 +38,10 @@ interface AuthContextProviderProps {
 export const AuthContextProvider: FC<AuthContextProviderProps> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
   const [error, setError] = useState<string | null>(null);
 
   const googleSignIn = async () => {
@@ -80,6 +83,8 @@ export const AuthContextProvider: FC<AuthContextProviderProps> = ({
   const logOut = async () => {
     try {
       await signOut(auth);
+      setUser(null);
+      localStorage.removeItem("user");
     } catch (err) {
       console.error("Error during logout:", err);
       setError("An error occurred during logout.");
@@ -89,6 +94,11 @@ export const AuthContextProvider: FC<AuthContextProviderProps> = ({
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        localStorage.setItem("user", JSON.stringify(currentUser));
+      } else {
+        localStorage.removeItem("user");
+      }
     });
     return () => unsubscribe();
   }, []);
