@@ -153,7 +153,7 @@ const Navbar = () => {
           {user !== null ? (
             <>
               <Avatar
-                className="cursor-pointer"
+                className="cursor-pointer border-2 border-white ring-4 ring-mainColor"
                 onClick={() => setOpenProfile((prev) => !prev)}
               >
                 <AvatarImage src={avatarUrl} />

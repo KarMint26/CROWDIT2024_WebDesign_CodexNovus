@@ -6,6 +6,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import AOS from "aos";
 
 const Login = () => {
   const [email, setEmail] = React.useState<string>("");
@@ -82,6 +83,13 @@ const Login = () => {
     }
   }, [user, error]);
 
+  React.useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1500,
+    });
+  }, []);
+
   return (
     <React.Fragment>
       <ToastContainer />
@@ -92,7 +100,12 @@ const Login = () => {
       )}
       <div className="flex flex-row-reverse justify-center items-center overflow-hidden">
         <div className="w-[50%] h-screen bg-bgPurpleDark lg:flex justify-center items-center hidden">
-          <img src={HeroAuth2} alt="hero-auth" />
+          <img
+            data-aos="fade-up"
+            data-aos-delay="100"
+            src={HeroAuth2}
+            alt="hero-auth"
+          />
         </div>
         <div className="w-[100%] lg:w-[50%] h-screen flex justify-center items-center relative">
           {/* Decoration */}
@@ -102,7 +115,11 @@ const Login = () => {
 
           <div className="ball block lg:hidden bg-bgPurpleDark rounded-full w-[150px] h-[150px] absolute -left-[20%] -bottom-[12%] sm:-left-[10%] sm:-bottom-[10%]"></div>
 
-          <div className="form-container w-[300px] lg:w-[350px] flex flex-col justify-center items-center gap-3">
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            className="form-container w-[300px] lg:w-[350px] flex flex-col justify-center items-center gap-3"
+          >
             <Link to="/">
               <img src={LongIcon} alt="long-icon" />
             </Link>

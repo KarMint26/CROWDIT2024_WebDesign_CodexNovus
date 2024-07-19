@@ -11,6 +11,9 @@ import Footer from "./components/custom/Footer";
 import { UserAuth } from "./contexts/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
 import 'aos/dist/aos.css';
+import BtnBackTop from './components/custom/BtnBackTop';
+import IconChatbot from './components/chatbot/IconChatbot';
+import Chatbot from './pages/Chatbot';
 
 const App = () => {
   const location = useLocation();
@@ -26,16 +29,19 @@ const App = () => {
 
   return (
     <React.Fragment>
-      {pathname === "login" || pathname === "register" ? "" : <Navbar />}
+      {pathname === "login" || pathname === "register" || pathname === "chatbot" ? "" : <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dream-journal" element={user ? <DreamJournal /> : <Navigate to="/login" />} />
         <Route path="/soundscapes" element={user ? <Soundscapes /> : <Navigate to="/login" />} />
         <Route path="/breathing" element={user ? <Breathing /> : <Navigate to="/login" />} />
+        <Route path="/chatbot" element={user ? <Chatbot /> : <Navigate to="/login" />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
       </Routes>
-      {pathname === "login" || pathname === "register" ? "" : <Footer />}
+      {pathname === "login" || pathname === "register" || pathname === "chatbot" ? "" : <Footer />}
+      {pathname === "login" || pathname === "register" || pathname === "chatbot" ? "" : <BtnBackTop />}
+      {pathname === "login" || pathname === "register" || pathname === "chatbot" ? "" : <IconChatbot />}
     </React.Fragment>
   );
 };

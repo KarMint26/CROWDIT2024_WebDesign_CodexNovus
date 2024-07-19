@@ -72,4 +72,41 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
+
+  /* Scrollbar Style */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) hsla(186, 100%, 69%, 1) 100%;
+  }
+
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #691A72;
+    background: linear-gradient(
+      90deg,
+      #691A72 ,
+      #A84DB5
+    );
+    background: -moz-linear-gradient(
+      90deg,
+      #691A72 ,
+      #A84DB5
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      #691A72 ,
+      #A84DB5
+    );
+  }
 }

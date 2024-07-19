@@ -21,7 +21,6 @@ const Home = () => {
     AOS.init({
       once: true,
       duration: 1500,
-      offset: 200,
     });
   }, []);
 
@@ -71,6 +70,7 @@ const Home = () => {
               alt="hero-landing-page"
               className="w-auto sm:w-[600px]"
               data-aos="fade-up"
+              data-aos-delay="100"
             />
           </div>
         </div>
@@ -86,29 +86,41 @@ const Home = () => {
           <div className="w-full h-fit">
             <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
-                <h1 className="font-bold text-2xl sm:text-4xl lg:text-6xl">
+                <h1
+                  data-aos="fade-left"
+                  data-aos-delay="50"
+                  className="font-bold text-2xl sm:text-4xl lg:text-6xl"
+                >
                   Have you ever woken up feeling confused, wondering what your
                   dreams mean?
                 </h1>
-                <p className="text-sm md:text-base lg:text-[1.25rem]">
+                <p
+                  data-aos="fade-left"
+                  data-aos-delay="150"
+                  className="text-sm md:text-base lg:text-[1.25rem]"
+                >
                   Nocturn is here to help! Record your dreams, explore the
                   details, and discover their meaning with the Journey Dream
                   feature.
                 </p>
-                <CustomButtonWithIcon
-                  text="Try Dream Journal"
-                  icon={<SiOpentelemetry />}
-                  bgcolor="bg-mainColor"
-                  textcolor="text-white"
-                  bordercolor="border-secondaryColor"
-                  path="/dream-journal"
-                  customclass="w-fit mt-2"
-                />
+                <div data-aos="fade-left" data-aos-delay="250">
+                  <CustomButtonWithIcon
+                    text="Try Dream Journal"
+                    icon={<SiOpentelemetry />}
+                    bgcolor="bg-mainColor"
+                    textcolor="text-white"
+                    bordercolor="border-secondaryColor"
+                    path="/dream-journal"
+                    customclass="w-fit mt-2"
+                  />
+                </div>
               </div>
               <img
                 src={heroHomepage2}
                 alt="hero-landing-page"
                 className="w-auto sm:w-[600px]"
+                data-aos="fade-up"
+                data-aos-delay="200"
               />
             </div>
           </div>
@@ -125,31 +137,43 @@ const Home = () => {
           <div className="w-full h-fit">
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
-                <h1 className="font-bold text-2xl sm:text-4xl lg:text-6xl">
+                <h1
+                  data-aos="fade-right"
+                  data-aos-delay="50"
+                  className="font-bold text-2xl sm:text-4xl lg:text-6xl"
+                >
                   Having trouble sleeping?{" "}
                   <span className="text-mainColor">Soundscapes Nocturn</span> is
                   the solution!
                 </h1>
-                <p className="text-sm md:text-base lg:text-[1.25rem]">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="150"
+                  className="text-sm md:text-base lg:text-[1.25rem]"
+                >
                   Nocturn Soundscapes comes with a variety of soothing audios to
                   help you fall asleep quickly. Choose the audio that suits your
                   mood, feel your body and mind relax, and enjoy a deep, quality
                   sleep.
                 </p>
-                <CustomButtonWithIcon
-                  text="Try Soundscapes"
-                  icon={<PiSoundcloudLogoFill />}
-                  bgcolor="bg-mainColor"
-                  textcolor="text-white"
-                  bordercolor="border-secondaryColor"
-                  path="/soundscapes"
-                  customclass="w-fit mt-2"
-                />
+                <div data-aos="fade-right" data-aos-delay="250">
+                  <CustomButtonWithIcon
+                    text="Try Soundscapes"
+                    icon={<PiSoundcloudLogoFill />}
+                    bgcolor="bg-mainColor"
+                    textcolor="text-white"
+                    bordercolor="border-secondaryColor"
+                    path="/soundscapes"
+                    customclass="w-fit mt-2"
+                  />
+                </div>
               </div>
               <img
                 src={heroHomepage3}
                 alt="hero-landing-page"
                 className="w-auto sm:w-[600px]"
+                data-aos="zoom-in-up"
+                data-aos-delay="200"
               />
             </div>
           </div>
@@ -162,29 +186,33 @@ const Home = () => {
           <div className="bg-bgPurpleDark rounded-2xl p-6 lg:p-8 shadow-mainColor shadow-lg">
             <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
-                <h1 className="font-bold text-2xl sm:text-4xl lg:text-6xl">
+                <h1 data-aos="fade-left" data-aos-delay="50" className="font-bold text-2xl sm:text-4xl lg:text-6xl">
                   Stress making it harder to sleep? Breathing Nocturn is the
                   solution!
                 </h1>
-                <p className="text-sm md:text-base lg:text-[1.25rem]">
+                <p data-aos="fade-left" data-aos-delay="150" className="text-sm md:text-base lg:text-[1.25rem]">
                   Breathing Nocturn is the solution! This easy and effective
                   breathing exercise helps relax your mind and body, so you can
                   sleep better and wake up refreshed.
                 </p>
-                <CustomButtonWithIcon
-                  text="Try Breathing"
-                  icon={<TbLungsFilled />}
-                  bgcolor="bg-mainColor"
-                  textcolor="text-white"
-                  bordercolor="border-secondaryColor"
-                  path="/breathing"
-                  customclass="w-fit mt-2"
-                />
+                <div data-aos="fade-left" data-aos-delay="250">
+                  <CustomButtonWithIcon
+                    text="Try Breathing"
+                    icon={<TbLungsFilled />}
+                    bgcolor="bg-mainColor"
+                    textcolor="text-white"
+                    bordercolor="border-secondaryColor"
+                    path="/breathing"
+                    customclass="w-fit mt-2"
+                  />
+                </div>
               </div>
               <img
                 src={heroHomepage4}
                 alt="hero-landing-page"
                 className="w-auto sm:w-[600px]"
+                data-aos="zoom-in-right"
+                data-aos-delay="200"
               />
             </div>
           </div>
@@ -196,7 +224,7 @@ const Home = () => {
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
+              <div data-aos="zoom-in" data-aos-delay="150" className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
                 <span className="mb-2 block text-lg font-semibold text-primary">
                   FAQ
                 </span>
@@ -213,7 +241,7 @@ const Home = () => {
           </div>
 
           <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4 lg:w-1/2">
+            <div data-aos="zoom-in-right" data-aos-delay="150" className="w-full px-4 lg:w-1/2">
               <AccordionItem
                 header="What is the nocturn website?"
                 text="The nocturn website is a website that is useful for those who are sleep deprived or have poor sleep health."
@@ -227,7 +255,7 @@ const Home = () => {
                 text="This website features music soundscapes that soothe and relax you so that you can comfortably fall asleep."
               />
             </div>
-            <div className="w-full px-4 lg:w-1/2">
+            <div data-aos="zoom-in-left" data-aos-delay="250" className="w-full px-4 lg:w-1/2">
               <AccordionItem
                 header="How does the soundscapes feature work?"
                 text="The soundscapes feature works by displaying a list of soothing music, which you can listen to until you fall asleep."
@@ -248,7 +276,7 @@ const Home = () => {
       {/* Contact Us */}
       <section className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-12 mx-auto">
-          <div>
+          <div data-aos="fade-up" data-aos-delay="150">
             <p className="font-medium text-main dark:text-main/90">
               Contact us
             </p>
@@ -265,7 +293,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <span className="inline-block p-3 text-mainColor rounded-full bg-mainColor/80 dark:bg-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +322,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div>
+              <div data-aos="fade-up" data-aos-delay="250">
                 <span className="inline-block p-3 text-mainColor rounded-full bg-mainColor/80 dark:bg-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -328,7 +356,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div>
+              <div data-aos="fade-up" data-aos-delay="250">
                 <span className="inline-block p-3 text-mainColor rounded-full bg-mainColor/80 dark:bg-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -362,7 +390,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div>
+              <div data-aos="fade-up" data-aos-delay="300">
                 <span className="inline-block p-3 text-mainColor rounded-full bg-mainColor/80 dark:bg-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -392,7 +420,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
+            <div data-aos="zoom-out" data-aos-delay="350" className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
               <form>
                 <div className="-mx-2 md:items-center md:flex">
                   <div className="flex-1 px-2">

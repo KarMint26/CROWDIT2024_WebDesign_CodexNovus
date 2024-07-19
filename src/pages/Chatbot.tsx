@@ -1,11 +1,11 @@
 import React from "react";
 
-const IconChatbot = () => {
+const Chatbot = () => {
   return (
     <React.Fragment>
-      <div>IconChatbot</div>
+      <div>Chatbot</div>
     </React.Fragment>
   );
 };
 
-export default IconChatbot;
+export default Chatbot;
