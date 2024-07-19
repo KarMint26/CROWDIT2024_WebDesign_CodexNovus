@@ -141,7 +141,7 @@ const Login = () => {
               path="#"
               text="Login"
               textcolor="text-white"
-              customclass="self-start mt-2 w-[100px] sm:w-[120px] text-center border-2"
+              customclass="self-start text-[0.9rem] sm:text-base mt-2 w-[100px] sm:w-[120px] text-center border-2"
               onclick={() => handleLogin()}
             />
             <p className="self-start text-sm sm:text-base">
