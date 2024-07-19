@@ -1,18 +1,95 @@
 import CustomInput from "@/components/auth/CustomInput";
 import CustomButton from "@/components/custom/CustomButton";
 import { UserAuth } from "@/contexts/AuthContext";
-import { HeroAuth2, LongIcon } from "@/utils";
+import { HeroAuth2, LoadingAuth, LongIcon } from "@/utils";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
-  const { googleSignIn } = UserAuth();
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const { googleSignIn, signIn, error, user } = UserAuth();
+
+  const notify = (msg: string) => {
+    if (msg === "Wrong username or password") {
+      toast.error(msg, {
+        position: "top-right",
+        theme: "colored",
+        className: "font-semibold",
+      });
+    } else {
+      setTimeout(() => {
+        toast.success(msg, {
+          position: "top-right",
+          theme: "colored",
+          className: "font-semibold",
+        });
+      }, 2000);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await googleSignIn();
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  const handleLogin = async () => {
+    if (email !== "" && password !== "") {
+      try {
+        await signIn(email, password);
+        if (error !== null) {
+          setLoading(true);
+          setTimeout(() => {
+            navigate("/");
+          }, 3000);
+        }
+      } catch (error: any) {
+        console.log(error.message);
+      }
+    } else {
+      toast.warning("All forms to register must be filled in", {
+        position: "top-right",
+        theme: "colored",
+        className: "font-semibold",
+      });
+    }
+  };
+
+  React.useEffect(() => {
+    if (error) {
+      toast.error("Login error, wrong email or password", {
+        position: "top-right",
+        theme: "colored",
+        className: "font-semibold",
+      });
+    } else if (error === null && user !== null) {
+      notify("Login success");
+    }
+    if (user !== null) {
+      setLoading(true);
+      setTimeout(() => {
+        navigate("/");
+        setLoading(false);
+      }, 3000);
+    }
+  }, [user, error]);
 
   return (
     <React.Fragment>
+      <ToastContainer />
+      {loading && (
+        <div className="loading-container fixed w-screen h-screen bg-background/50 backdrop-blur-md flex justify-center items-center z-[10]">
+          <img src={LoadingAuth} alt="loading" className="scale-75" />
+        </div>
+      )}
       <div className="flex flex-row-reverse justify-center items-center overflow-hidden">
         <div className="w-[50%] h-screen bg-bgPurpleDark lg:flex justify-center items-center hidden">
           <img src={HeroAuth2} alt="hero-auth" />
@@ -32,7 +109,10 @@ const Login = () => {
             <h1 className="font-semibold text-xl sm:text-2xl text-[#EEEEEE] mb-2">
               Sleep With Nocturn
             </h1>
-            <div onClick={() => googleSignIn()} className="input-custom w-full hover:border-mainColor border-4 transition duration-300 rounded-3xl bg-[#EEEEEE] justify-center items-center relative px-5 py-3 text-black text-center cursor-pointer">
+            <div
+              onClick={() => handleGoogleLogin()}
+              className="input-custom w-full hover:border-mainColor border-4 transition duration-300 rounded-3xl bg-[#EEEEEE] justify-center items-center relative px-5 py-3 text-black text-center cursor-pointer"
+            >
               <FcGoogle className="text-3xl absolute left-3 top-[50%] -translate-y-[50%]" />
               Login With Google
             </div>
@@ -58,10 +138,11 @@ const Login = () => {
             <CustomButton
               bgcolor="bg-bgPurpleDark"
               bordercolor="border-mainColor"
-              path="/"
+              path="#"
               text="Login"
               textcolor="text-white"
               customclass="self-start mt-2 w-[100px] sm:w-[120px] text-center border-2"
+              onclick={() => handleLogin()}
             />
             <p className="self-start text-sm sm:text-base">
               Don't have an account?{" "}

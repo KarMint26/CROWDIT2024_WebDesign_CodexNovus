@@ -8,6 +8,7 @@ type customBtn = {
   textcolor: string;
   bordercolor: string;
   customclass?: string;
+  onclick?: () => void;
 };
 
 const CustomButton = ({
@@ -16,13 +17,15 @@ const CustomButton = ({
   bordercolor,
   bgcolor,
   textcolor,
-  customclass
+  customclass,
+  onclick,
 }: customBtn) => {
   return (
     <React.Fragment>
       <Link
         className={`text-[0.8rem] sm:text-base font-semibold ${textcolor} ${bordercolor} ${bgcolor} rounded-full px-3 sm:px-4 py-2 border-2 ${customclass}`}
         to={path}
+        onClick={onclick}
       >
         {text}
       </Link>
