@@ -131,7 +131,7 @@ const Register = () => {
               className="input-custom w-full hover:border-mainColor border-4 transition duration-300 rounded-3xl bg-[#EEEEEE] justify-center items-center relative px-5 py-3 text-black text-center cursor-pointer"
             >
               <FcGoogle className="text-3xl absolute left-3 top-[50%] -translate-y-[50%]" />
-              Register With Google
+              Login With Google
             </div>
             <div className="relative w-[95%] h-2 border-t-2 border-[#D9D9D9] mt-2">
               <div className="absolute right-[50%] translate-x-[50%] top-[75%] -translate-y-[75%] bg-background px-2 text-[#EEEEEE]">

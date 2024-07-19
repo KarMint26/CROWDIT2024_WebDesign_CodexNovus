@@ -13,6 +13,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   User,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "@/firebase";
 
@@ -23,6 +24,7 @@ interface AuthContextType {
   logOut: () => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
+  sendPasswordReset: (email: string) => Promise<void>
   error: string | null;
 }
 
@@ -86,6 +88,14 @@ export const AuthContextProvider: FC<AuthContextProviderProps> = ({
     }
   };
 
+  const sendPasswordReset = async (email: string) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+    } catch (err: any) {
+      setError(err.message);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -95,7 +105,7 @@ export const AuthContextProvider: FC<AuthContextProviderProps> = ({
 
   return (
     <AuthContext.Provider
-      value={{ user, googleSignIn, logOut, signIn, signUp, error }}
+      value={{ user, googleSignIn, logOut, signIn, signUp, sendPasswordReset, error }}
     >
       {children}
     </AuthContext.Provider>
