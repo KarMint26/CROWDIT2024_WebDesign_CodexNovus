@@ -180,7 +180,7 @@ const Navbar = () => {
               bgcolor="bg-white"
               bordercolor="border-secondaryColor"
               textcolor="text-mainColor"
-              customclass="hover:bg-mainColor hover:text-white transition duration-300"
+              customclass="w-[120px] text-center sm:w-auto hover:bg-mainColor hover:text-white transition duration-300"
             />
           )}
         </div>

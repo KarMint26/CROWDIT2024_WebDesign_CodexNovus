@@ -67,8 +67,9 @@
   }
   html {
     scroll-behavior: smooth !important;
+    overflow-x: hidden !important;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }

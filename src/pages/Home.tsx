@@ -1,5 +1,5 @@
 import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   heroHomepage1,
   heroHomepage2,
@@ -14,8 +14,17 @@ import { SiOpentelemetry } from "react-icons/si";
 import { PiSoundcloudLogoFill } from "react-icons/pi";
 import { TbLungsFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import AOS from "aos";
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1200,
+      offset: 150,
+    });
+  }, []);
+
   return (
     <React.Fragment>
       {/* Section Landing Page */}
@@ -23,34 +32,46 @@ const Home = () => {
         <div className="w-full h-fit">
           <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
             <div className="flex flex-col gap-2 sm:gap-3">
-              <h1 className="font-bold text-2xl sm:text-4xl lg:text-6xl">
+              <h1
+                data-aos="fade-right"
+                data-aos-delay="50"
+                className="font-bold text-2xl sm:text-4xl lg:text-6xl"
+              >
                 Improve Your Sleep Quality with{" "}
                 <span className="text-mainColor">Nocturn</span>
               </h1>
-              <p className="text-sm md:text-base lg:text-[1.25rem]">
+              <p
+                data-aos="fade-right"
+                data-aos-delay="150"
+                className="text-sm md:text-base lg:text-[1.25rem]"
+              >
                 Nocturn is an Web app designed to help you improve your sleep.
                 With a range of innovative features, Nocturn becomes a loyal
                 companion on your journey to a deeper and more refreshing sleep.
               </p>
-              <CustomButtonWithIcon
-                text="Explore More"
-                icon={<IoRocket />}
-                bgcolor="bg-mainColor"
-                textcolor="text-white"
-                bordercolor="border-secondaryColor"
-                path="#trydj"
-                customclass="w-fit mt-2"
-                onhandleclick={() =>
-                  window.scrollTo({
-                    top: 800,
-                  })
-                }
-              />
+              <div data-aos="fade-right" data-aos-delay="250">
+                <CustomButtonWithIcon
+                  text="Explore More"
+                  icon={<IoRocket />}
+                  bgcolor="bg-mainColor"
+                  textcolor="text-white"
+                  bordercolor="border-secondaryColor"
+                  path="#trydj"
+                  customclass="w-fit mt-2"
+                  onhandleclick={() =>
+                    window.scrollTo({
+                      top: 800,
+                    })
+                  }
+                />
+              </div>
             </div>
             <img
               src={heroHomepage1}
               alt="hero-landing-page"
               className="w-auto sm:w-[600px]"
+              data-aos="fade-left"
+              data-aos-offset="150"
             />
           </div>
         </div>
@@ -181,7 +202,8 @@ const Home = () => {
                   FAQ
                 </span>
                 <h2 className="mb-4 text-3xl font-bold text-white sm:text-[40px]/[48px]">
-                  Any Questions? Look <span className="text-mainColor">Here</span>
+                  Any Questions? Look{" "}
+                  <span className="text-mainColor">Here</span>
                 </h2>
                 <p className="text-base text-dark-6">
                   There is a lot of information related to the Nocturn website,
@@ -269,7 +291,7 @@ const Home = () => {
                   Our friendly team is here to help.
                 </p>
                 <p className="mt-2 text-sm text-mainColor dark:text-mainColor/90">
-                nocturn@nocturn.id
+                  nocturn@nocturn.id
                 </p>
               </div>
 
@@ -418,7 +440,10 @@ const Home = () => {
                   ></textarea>
                 </div>
 
-                <Link to={"mailto:nocturn@nocturn.id"} className="inline-block text-center w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-mainColor rounded-lg hover:bg-bgPurpleDark focus:outline-none focus:ring focus:ring-mainColor focus:ring-opacity-50">
+                <Link
+                  to={"mailto:nocturn@nocturn.id"}
+                  className="inline-block text-center w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-mainColor rounded-lg hover:bg-bgPurpleDark focus:outline-none focus:ring focus:ring-mainColor focus:ring-opacity-50"
+                >
                   Send message
                 </Link>
               </form>

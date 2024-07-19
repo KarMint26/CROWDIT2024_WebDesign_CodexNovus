@@ -10,6 +10,7 @@ import Navbar from "./components/custom/Navbar";
 import Footer from "./components/custom/Footer";
 import { UserAuth } from "./contexts/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
+import 'aos/dist/aos.css';
 
 const App = () => {
   const location = useLocation();
