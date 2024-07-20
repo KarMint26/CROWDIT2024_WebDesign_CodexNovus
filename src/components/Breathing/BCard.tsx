@@ -6,6 +6,7 @@ import { TypeBCard } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { SiApplemusic } from "react-icons/si";
 
+// data for: diaphragmatic breathing
 const timeRanges: { start: number; end: number; text: string }[] = [];
 for (let i = 0; i < 300; i += 5) {
   if (i % 10 < 5) {
@@ -14,6 +15,7 @@ for (let i = 0; i < 300; i += 5) {
     timeRanges.push({ start: i, end: i + 4, text: "Buang Napas" });
   }
 }
+
 function BCard({ title, description }: TypeBCard) {
   const [minuteActive, setMinuteActive] = useState<number>(0);
   const [tabActive, setTabActive] = useState<string>("audio");
@@ -21,6 +23,13 @@ function BCard({ title, description }: TypeBCard) {
   const [audio] = useState(new Audio("/audio/breathing.mp3"));
   const [time, setTime] = useState(0);
   const [textDynamic, setTextDynamic] = useState<string>("Cari posisi nyaman");
+
+  const stopAudio = () => {
+    setPlay(false);
+    setMinuteActive(0);
+    setTime(-1);
+    audio.currentTime = 0;
+  };
 
   useEffect(() => {
     if (play) {
@@ -40,6 +49,21 @@ function BCard({ title, description }: TypeBCard) {
         }
       });
 
+      const stopCondition = [
+        { minute: 1, duration: 60 },
+        { minute: 2, duration: 180 },
+        { minute: 3, duration: 300 },
+      ];
+
+      const condition = stopCondition.find(
+        (item) => item.minute === minuteActive && time >= item.duration
+      );
+
+      if (condition) {
+        stopAudio();
+        setTextDynamic("Cari posisi nyaman");
+      }
+
       return () => {
         clearInterval(interval);
         audio.removeEventListener("timeupdate", () => {});
@@ -47,7 +71,7 @@ function BCard({ title, description }: TypeBCard) {
     } else {
       audio.pause();
     }
-  }, [audio, play, time]);
+  }, [audio, play, time, minuteActive]);
 
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
@@ -58,6 +82,7 @@ function BCard({ title, description }: TypeBCard) {
   };
 
   const handlePlay = (m: number) => {
+    audio.currentTime = 0;
     setPlay(true);
     setMinuteActive(m);
     if (!play) {
@@ -70,7 +95,11 @@ function BCard({ title, description }: TypeBCard) {
   };
 
   return (
-    <div className="w-full p-5 bg-mainColor mb-10 rounded-xl max-w-xl m-auto shadow-xl shadow-secondaryColor/50 hover:shadow-secondaryColor/85">
+    <div
+      className={
+        "w-full p-5 bg-mainColor mb-10 rounded-xl max-w-xl m-auto shadow-xl shadow-secondaryColor/50 hover:shadow-secondaryColor/85"
+      }
+    >
       <div className="flex justify-between bg-slate-800 px-5 p-3 rounded-xl">
         <h3 className="text-white text-xl font-semibold">{title}</h3>
         <button
