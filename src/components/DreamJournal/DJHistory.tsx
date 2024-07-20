@@ -14,6 +14,8 @@ function DJHistory({ setShowModal, setDataDream }: TypeHistory) {
     });
   }, []);
 
+  const calculateDelay = (index: number) => 50 + index * 100;
+
   return (
     <>
       <div
@@ -27,16 +29,15 @@ function DJHistory({ setShowModal, setDataDream }: TypeHistory) {
         </TextTitle>
       </div>
       <div
-        data-aos="fade-up"
-        data-aos-delay="250"
         className="w-full p-2 flex gap-3 justify-center flex-wrap mb-5 lg:mb-16"
       >
-        {listDreamInterpretations.map((item) => (
+        {listDreamInterpretations.map((item, index) => (
           <CardHistory
             handleClick={() => {
               setDataDream(item);
               setShowModal(true);
             }}
+            delay={calculateDelay(index)}
             key={item.id}
             {...item}
           />

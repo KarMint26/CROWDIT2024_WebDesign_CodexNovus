@@ -1,18 +1,30 @@
+import { useEffect } from "react";
 import { FaCalendar, FaEye } from "react-icons/fa6";
+import AOS from "aos";
 
 type TypeHistory = {
   id: number;
   date: string;
   dream: string;
   interpret: string;
+  delay: number;
   handleClick: () => void;
 };
 
-function CardHistory({ id, date, dream, handleClick }: TypeHistory) {
+function CardHistory({ id, date, dream, delay, handleClick }: TypeHistory) {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1500,
+    });
+  }, []);
+
   const text = dream.slice(0, 210);
   return (
     <div
       key={id}
+      data-aos="zoom-in-up"
+      data-aos-delay={delay}
       className="bg-slate-200 w-full max-w-xl p-5 rounded-2xl shadow-xl shadow-mainColor/70 hover:shadow-mainColor"
     >
       <div className="flex pb-3 border-b-2 justify-between border-b-slate-300 gap-5 items-center">

@@ -1,3 +1,5 @@
+import { Mood1, Mood2, Mood3, Mood4, Mood5, Mood6, Mood7, Mood8 } from ".";
+
 export const listTextTutorialDJ = [
   "Write down the details of your dream",
   "select the date when the dream occurred",
@@ -141,5 +143,56 @@ export let listDreamInterpretations = [
     dream:
       "I found myself in a quaint village nestled in the hills, where cobblestone streets wound through charming houses with flower boxes. The sky was a brilliant blue, and the sun shone warmly. I walked through the market square, where vendors sold fresh produce and handmade crafts. Laughter and music filled the air. I felt a sense of belonging, greeted by friendly faces at every turn. As I strolled towards the village's edge, I discovered a hidden garden filled with blooming roses and a gentle fountain. I sat on a bench, savoring the tranquility and joy, feeling completely at ease and happy.",
     interpret: `Your quaint village dream, filled with friendly faces, sunshine, and blooming roses, suggests feelings of contentment and peace. The village symbolizes community and belonging, while the vibrant market square reflects joy and social interaction. Clear skies and warm sun represent positivity and happiness. Discovering a hidden garden signifies inner beauty and self-love. Cobblestone streets and charming houses evoke nostalgia and comfort, while handmade crafts highlight appreciation for authenticity. Sitting by the fountain suggests relaxation and self-care. Overall, this dream indicates emotional and mental well-being, a strong sense of community, and a desire for simple pleasures. Nurture your relationships, seek joyful activities, and prioritize self-care to maintain this positive state.`,
+  },
+];
+
+export const listMood = [
+  {
+    id: 1,
+    numberImg: Mood1,
+    delay: 50,
+    name: "Anxious"
+  },
+  {
+    id: 2,
+    numberImg: Mood2,
+    delay: 150,
+    name: "Calm"
+  },
+  {
+    id: 3,
+    numberImg: Mood3,
+    delay: 250,
+    name: "Fear"
+  },
+  {
+    id: 4,
+    numberImg: Mood4,
+    delay: 350,
+    name: "Frustated"
+  },
+  {
+    id: 5,
+    numberImg: Mood5,
+    delay: 450,
+    name: "Happy"
+  },
+  {
+    id: 6,
+    numberImg: Mood6,
+    delay: 550,
+    name: "Loneliness"
+  },
+  {
+    id: 7,
+    numberImg: Mood7,
+    delay: 650,
+    name: "Sad"
+  },
+  {
+    id: 8,
+    numberImg: Mood8,
+    delay: 750,
+    name: "Tired"
   },
 ];
