@@ -8,23 +8,15 @@ import { SiApplemusic } from "react-icons/si";
 import { toast } from "react-toastify";
 import AOS from "aos";
 
-// data for: diaphragmatic breathing
-const timeRanges: { start: number; end: number; text: string }[] = [];
-for (let i = 0; i < 300; i += 5) {
-  if (i % 10 < 5) {
-    timeRanges.push({ start: i, end: i + 4, text: "inhale slowly" });
-  } else {
-    timeRanges.push({ start: i, end: i + 4, text: "exhale slowly" });
-  }
-}
-
-function BCard({ title, description, delay }: TypeBCard) {
+function BCard({ title, description, delay, timeRanges }: TypeBCard) {
   const [minuteActive, setMinuteActive] = useState<number>(0);
   const [tabActive, setTabActive] = useState<string>("audio");
   const [play, setPlay] = useState<boolean>(false);
   const [audio] = useState(new Audio("/audio/breathing.mp3"));
   const [time, setTime] = useState(0);
-  const [textDynamic, setTextDynamic] = useState<string>("Cari posisi nyaman");
+  const [textDynamic, setTextDynamic] = useState<string>(
+    "Find a comfortable position"
+  );
 
   const stopAudio = () => {
     setPlay(false);
@@ -67,7 +59,7 @@ function BCard({ title, description, delay }: TypeBCard) {
 
       if (condition) {
         stopAudio();
-        setTextDynamic("Cari posisi nyaman");
+        setTextDynamic("Find a comfortable position");
       }
 
       return () => {

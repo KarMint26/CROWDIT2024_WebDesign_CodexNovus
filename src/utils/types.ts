@@ -14,6 +14,7 @@ export type TypeBCard = {
   title: string;
   description: string;
   delay: number;
+  timeRanges: { start: number; end: number; text: string }[];
 };
 
 export type TypeButtonTime = {
