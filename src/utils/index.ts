@@ -11,6 +11,7 @@ import WavePurple from "/assets/homepage/wave-2.png";
 import HeroAuth from "/assets/auth/hero-auth.png";
 import HeroAuth2 from "/assets/auth/hero-auth2.png";
 import LoadingAuth from "/assets/loading-screen/loading.gif";
+import ChatbotHero from "/assets/homepage/hero-chatbot.png";
 
 export {
   LongIcon,
@@ -25,5 +26,6 @@ export {
   dj,
   HeroAuth,
   HeroAuth2,
-  LoadingAuth
+  LoadingAuth,
+  ChatbotHero
 };

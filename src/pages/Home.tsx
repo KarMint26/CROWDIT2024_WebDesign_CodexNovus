@@ -1,6 +1,7 @@
 import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
 import React, { useEffect, useState } from "react";
 import {
+  ChatbotHero,
   heroHomepage1,
   heroHomepage2,
   heroHomepage3,
@@ -13,6 +14,7 @@ import { IoRocket } from "react-icons/io5";
 import { SiOpentelemetry } from "react-icons/si";
 import { PiSoundcloudLogoFill } from "react-icons/pi";
 import { TbLungsFilled } from "react-icons/tb";
+import { AiFillRobot } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 
@@ -186,11 +188,19 @@ const Home = () => {
           <div className="bg-bgPurpleDark rounded-2xl p-6 lg:p-8 shadow-mainColor shadow-lg">
             <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
-                <h1 data-aos="fade-left" data-aos-delay="50" className="font-bold text-2xl sm:text-4xl lg:text-6xl">
+                <h1
+                  data-aos="fade-left"
+                  data-aos-delay="50"
+                  className="font-bold text-2xl sm:text-4xl lg:text-6xl"
+                >
                   Stress making it harder to sleep? Breathing Nocturn is the
                   solution!
                 </h1>
-                <p data-aos="fade-left" data-aos-delay="150" className="text-sm md:text-base lg:text-[1.25rem]">
+                <p
+                  data-aos="fade-left"
+                  data-aos-delay="150"
+                  className="text-sm md:text-base lg:text-[1.25rem]"
+                >
                   Breathing Nocturn is the solution! This easy and effective
                   breathing exercise helps relax your mind and body, so you can
                   sleep better and wake up refreshed.
@@ -219,12 +229,67 @@ const Home = () => {
         </DefaultView>
       </section>
 
+      {/* Try Chatbot */}
+      <section
+        id="trychatbot"
+        className="w-full h-fit flex items-start justify-start flex-col"
+      >
+        <div className="py-4 px-5 sm:px-6 lg:px-8">
+          <div className="w-full h-fit">
+            <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
+              <div className="flex flex-col gap-2 sm:gap-3">
+                <h1
+                  data-aos="fade-right"
+                  data-aos-delay="50"
+                  className="font-bold text-2xl sm:text-4xl lg:text-6xl"
+                >
+                  Have questions about your sleep disorder?{" "}
+                  <span className="text-mainColor">Nocturn Chatbot AI</span> has
+                  the solution for you.
+                </h1>
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="150"
+                  className="text-sm md:text-base lg:text-[1.25rem]"
+                >
+                  There are many questions you can ask the chatbot from nocturn,
+                  including questions about your sleep disorder and other
+                  questions related to sleep and sleep problems.
+                </p>
+                <div data-aos="fade-right" data-aos-delay="250">
+                  <CustomButtonWithIcon
+                    text="Try Chatbot"
+                    icon={<AiFillRobot />}
+                    bgcolor="bg-mainColor"
+                    textcolor="text-white"
+                    bordercolor="border-secondaryColor"
+                    path="/chatbot"
+                    customclass="w-fit mt-2"
+                  />
+                </div>
+              </div>
+              <img
+                src={ChatbotHero}
+                alt="hero-landing-page"
+                className="w-auto sm:w-[600px]"
+                data-aos="zoom-in-up"
+                data-aos-delay="200"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="relative z-20 overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div data-aos="zoom-in" data-aos-delay="150" className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
+              <div
+                data-aos="zoom-in"
+                data-aos-delay="150"
+                className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20"
+              >
                 <span className="mb-2 block text-lg font-semibold text-primary">
                   FAQ
                 </span>
@@ -241,7 +306,11 @@ const Home = () => {
           </div>
 
           <div className="-mx-4 flex flex-wrap">
-            <div data-aos="zoom-in-right" data-aos-delay="150" className="w-full px-4 lg:w-1/2">
+            <div
+              data-aos="zoom-in-right"
+              data-aos-delay="150"
+              className="w-full px-4 lg:w-1/2"
+            >
               <AccordionItem
                 header="What is the nocturn website?"
                 text="The nocturn website is a website that is useful for those who are sleep deprived or have poor sleep health."
@@ -255,7 +324,11 @@ const Home = () => {
                 text="This website features music soundscapes that soothe and relax you so that you can comfortably fall asleep."
               />
             </div>
-            <div data-aos="zoom-in-left" data-aos-delay="250" className="w-full px-4 lg:w-1/2">
+            <div
+              data-aos="zoom-in-left"
+              data-aos-delay="250"
+              className="w-full px-4 lg:w-1/2"
+            >
               <AccordionItem
                 header="How does the soundscapes feature work?"
                 text="The soundscapes feature works by displaying a list of soothing music, which you can listen to until you fall asleep."
@@ -420,7 +493,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div data-aos="zoom-out" data-aos-delay="350" className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
+            <div
+              data-aos="zoom-out"
+              data-aos-delay="350"
+              className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8"
+            >
               <form>
                 <div className="-mx-2 md:items-center md:flex">
                   <div className="flex-1 px-2">
