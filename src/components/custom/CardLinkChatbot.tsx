@@ -14,7 +14,7 @@ export default function CardLinkChatbot({
 }: chatbotCardLink) {
   return (
     <React.Fragment>
-      <Link target="_blank" to={LinkUrl} className="card-link">
+      <Link to={LinkUrl} className="card-link">
         {Icon}
         {CardName}
       </Link>
