@@ -9,7 +9,7 @@ function BAudios() {
           Audios Techniques <span className="text-mainColor">Breathing</span>
         </TextTitle>
       </div>
-      <div className="w-full max-w-7xl p-3 flex items-center justify-center gap-5 flex-wrap">
+      <div className="w-full m-auto max-w-7xl p-3 flex items-center justify-center gap-5 flex-wrap">
         <BCard
           title="Diaphragmatic Breathing"
           description="Diaphragmatic breathing, also known as deep or abdominal breathing, involves using the diaphragm to take deep breaths, causing the abdomen to rise while keeping the chest still. This technique promotes full oxygen exchange, which can reduce stress and anxiety by activating the parasympathetic nervous system. Benefits include improved lung function, increased oxygen supply to the body, lower blood pressure, and enhanced core muscle stability. It is commonly used in practices like yoga and meditation to support overall physical and mental well-being."
