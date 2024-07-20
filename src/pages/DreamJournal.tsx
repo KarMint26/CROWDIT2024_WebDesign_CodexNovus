@@ -2,7 +2,7 @@ import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
 import DefaultView from "@/components/custom/DefaultView";
 import TextTitle from "@/components/custom/TextTitle";
 import { listDreamInterpretations } from "@/utils/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoRocket } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -14,8 +14,8 @@ import DJHero from "@/components/DreamJournal/DJHero";
 import DJHistory from "@/components/DreamJournal/DJHistory";
 import convertDate from "@/utils/convertDate";
 import axios from "axios";
-import { Toaster } from "@/components/ui/toaster";
-import { useToast } from "@/components/ui/use-toast";
+import { toast, ToastContainer } from "react-toastify";
+import AOS from "aos";
 
 const DreamJournal = () => {
   const [dreamDate, setDreamDate] = useState<Date>(new Date());
@@ -24,7 +24,6 @@ const DreamJournal = () => {
   const [dataDream, setDataDream] = useState<TypeDataDream>(
     listDreamInterpretations[0]
   );
-  const { toast } = useToast();
   const [valeuInput, setValeuInput] = useState<string>("");
   let options = {
     method: "POST",
@@ -77,6 +76,13 @@ const DreamJournal = () => {
     }
   };
 
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1500,
+    });
+  }, []);
+
   return (
     <div className="w-full relative">
       <DefaultView>
@@ -91,12 +97,16 @@ const DreamJournal = () => {
           className="w-full max-w-7xl m-auto p-5 lg:p-10 rounded-3xl bg-bgPurpleDark shadow-lg mb-5 lg:my-28 shadow-secondaryColor/75"
           id="trydj"
         >
-          <div className="text-center pb-5 lg:pb-10 mb-5 border-b-2 border-white/50">
+          <div
+            data-aos="zoom-in-up"
+            data-aos-delay="150"
+            className="text-center pb-5 lg:pb-10 mb-5 border-b-2 border-white/50"
+          >
             <TextTitle>
               Write Down Your <span className="text-mainColor">Dream</span>
             </TextTitle>
           </div>
-          <div className="">
+          <div data-aos="zoom-in-up" data-aos-delay="250">
             <textarea
               id="message"
               rows={4}
@@ -126,12 +136,14 @@ const DreamJournal = () => {
                     handleInterpretation();
                   }
                   if (valeuInput === "") {
-                    toast({
-                      title: "System Warning!",
-                      description:
-                        "Please write down your dream before click button get interpretation, please try again!",
-                      variant: "destructive",
-                    });
+                    toast.warning(
+                      "Please write down your dream before click button get interpretation, please try again!",
+                      {
+                        position: "top-right",
+                        theme: "colored",
+                        className: "font-semibold",
+                      }
+                    );
                   }
                 }}
                 customclass="w-fit mt-5"
@@ -149,7 +161,7 @@ const DreamJournal = () => {
           handleClick={() => setShowModal(false)}
         />
       )}
-      <Toaster />
+      <ToastContainer />
     </div>
   );
 };

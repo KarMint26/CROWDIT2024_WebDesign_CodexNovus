@@ -2,6 +2,8 @@ import TextTitle from "./TextTitle";
 import TextDescription from "./TextDescription";
 import { IoMdCloseCircle } from "react-icons/io";
 import { FaCalendarDay, FaClipboardList } from "react-icons/fa6";
+import { useEffect } from "react";
+import AOS from "aos";
 
 type TypeModal = {
   interpret: {
@@ -13,16 +15,23 @@ type TypeModal = {
   handleClick: () => void;
 };
 function ModalResultDream({ interpret, handleClick }: TypeModal) {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1500,
+    });
+  }, []);
+
   return (
     <div className="w-full h-screen bg-slate-800 p-5 fixed top-0 z-[9999] flex items-center justify-center">
-      <div className="w-full max-w-6xl m-auto rounded-xl bg-bgPurpleDark p-5 lg:p-10 overflow-y-auto">
+      <div data-aos="zoom-in" className="w-full max-w-6xl m-auto rounded-xl bg-bgPurpleDark p-5 lg:p-10 overflow-y-auto">
         <div className="flex justify-center text-center items-center bg-white/50 px-5 py-5 rounded-xl">
           <TextTitle>
             <FaClipboardList className="inline mr-5" />
             Result Interpretation Dream
           </TextTitle>
         </div>
-        <div className="my-5 lg:my-10">
+        <div className="mt-5 mb-2 lg:mb-6 lg:mt-10 w-full overflow-y-auto h-[300px]">
           <TextDescription value={interpret.interpret} />
         </div>
 

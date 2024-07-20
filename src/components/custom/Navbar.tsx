@@ -20,10 +20,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logOut } = UserAuth();
 
-  const [avatarUrl, setAvatarUrl] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState(
+    `/assets/avatar/avatar-img-${Math.floor(Math.random()*4)+1}.png`
+  );
 
   useEffect(() => {
-    setAvatarUrl(`https://api.multiavatar.com/${Math.random()}.png`);
+    setAvatarUrl(
+      `/assets/avatar/avatar-img-${Math.floor(Math.random() * 4) + 1}.png`
+    );
   }, []);
 
   useEffect(() => {

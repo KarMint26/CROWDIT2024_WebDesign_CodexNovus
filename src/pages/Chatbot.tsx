@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { heroHomepage1, Icon } from "@/utils";
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { ChatbotHero, Icon } from "@/utils";
+import { BsSoundwave } from "react-icons/bs";
 import { FaBars, FaHome } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { BiSolidSend, BiSolidBot, BiSolidUser } from "react-icons/bi";
@@ -10,6 +10,7 @@ import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CardLinkChatbot from "@/components/custom/CardLinkChatbot";
+import { FaBookJournalWhills, FaLungs } from "react-icons/fa6";
 
 interface Chat {
   id: number;
@@ -178,22 +179,22 @@ const Chatbot: React.FC = () => {
             </div>
           </div>
           <div className="content flex justify-center items-center flex-col gap-3 -translate-y-[3rem] lg:translate-y-0">
-            <img src={heroHomepage1} alt="hero" className="w-44" />
-            <p className="text-sm font-semibold">Nocturn Social Media</p>
+            <img src={ChatbotHero} alt="hero" className="w-44" />
+            <p className="text-sm font-semibold">Nocturn Another Features</p>
             <CardLinkChatbot
-              LinkUrl="#"
-              Icon={<BsGithub />}
-              CardName="Github"
+              LinkUrl="/dream-journal"
+              Icon={<FaBookJournalWhills />}
+              CardName="Dream Journal"
             />
             <CardLinkChatbot
-              LinkUrl="#"
-              Icon={<BsLinkedin />}
-              CardName="LinkedIn"
+              LinkUrl="/soundscapes"
+              Icon={<BsSoundwave />}
+              CardName="Soundscapes"
             />
             <CardLinkChatbot
-              LinkUrl="#"
-              Icon={<BsInstagram />}
-              CardName="Instagram"
+              LinkUrl="/breathing"
+              Icon={<FaLungs />}
+              CardName="Breathing"
             />
           </div>
           <footer className="text-xs font-bold -translate-y-[2.5rem] lg:translate-y-0">
@@ -230,22 +231,22 @@ const Chatbot: React.FC = () => {
             </div>
           </div>
           <div className="content flex justify-center items-center flex-col gap-3 -translate-y-[3rem] lg:translate-y-0">
-            <img src={heroHomepage1} alt="hero" className="w-44" />
-            <p className="text-sm font-semibold">Developer Social Media</p>
+            <img src={ChatbotHero} alt="hero" className="w-44" />
+            <p className="text-sm font-semibold">Nocturn Another Features</p>
             <CardLinkChatbot
-              LinkUrl="#"
-              Icon={<BsGithub />}
-              CardName="Github"
+              LinkUrl="/dream-journal"
+              Icon={<FaBookJournalWhills />}
+              CardName="Dream Journal"
             />
             <CardLinkChatbot
-              LinkUrl="#"
-              Icon={<BsLinkedin />}
-              CardName="LinkedIn"
+              LinkUrl="/soundscapes"
+              Icon={<BsSoundwave />}
+              CardName="Soundscapes"
             />
             <CardLinkChatbot
-              LinkUrl="#"
-              Icon={<BsInstagram />}
-              CardName="Instagram"
+              LinkUrl="/breathing"
+              Icon={<FaLungs />}
+              CardName="Breathing"
             />
           </div>
           <footer className="text-xs font-bold -translate-y-[2.5rem] lg:translate-y-0">
