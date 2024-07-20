@@ -13,6 +13,7 @@ export type TypeHistory = {
 export type TypeBCard = {
   title: string;
   description: string;
+  delay: number;
 };
 
 export type TypeButtonTime = {

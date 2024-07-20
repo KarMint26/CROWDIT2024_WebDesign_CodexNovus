@@ -5,18 +5,20 @@ import { FaPause, FaPlay } from "react-icons/fa6";
 import { TypeBCard } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { SiApplemusic } from "react-icons/si";
+import { toast } from "react-toastify";
+import AOS from "aos";
 
 // data for: diaphragmatic breathing
 const timeRanges: { start: number; end: number; text: string }[] = [];
 for (let i = 0; i < 300; i += 5) {
   if (i % 10 < 5) {
-    timeRanges.push({ start: i, end: i + 4, text: "Tarik Napas" });
+    timeRanges.push({ start: i, end: i + 4, text: "inhale slowly" });
   } else {
-    timeRanges.push({ start: i, end: i + 4, text: "Buang Napas" });
+    timeRanges.push({ start: i, end: i + 4, text: "exhale slowly" });
   }
 }
 
-function BCard({ title, description }: TypeBCard) {
+function BCard({ title, description, delay }: TypeBCard) {
   const [minuteActive, setMinuteActive] = useState<number>(0);
   const [tabActive, setTabActive] = useState<string>("audio");
   const [play, setPlay] = useState<boolean>(false);
@@ -32,6 +34,10 @@ function BCard({ title, description }: TypeBCard) {
   };
 
   useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1500,
+    });
     if (play) {
       audio.play();
       const interval = setInterval(() => {
@@ -51,8 +57,8 @@ function BCard({ title, description }: TypeBCard) {
 
       const stopCondition = [
         { minute: 1, duration: 60 },
-        { minute: 2, duration: 180 },
-        { minute: 3, duration: 300 },
+        { minute: 3, duration: 180 },
+        { minute: 5, duration: 300 },
       ];
 
       const condition = stopCondition.find(
@@ -99,6 +105,8 @@ function BCard({ title, description }: TypeBCard) {
       className={
         "w-full p-5 bg-mainColor mb-10 rounded-xl max-w-xl m-auto shadow-xl shadow-secondaryColor/50 hover:shadow-secondaryColor/85"
       }
+      data-aos="fade-up"
+      data-aos-delay={delay.toString()}
     >
       <div className="flex justify-between bg-slate-800 px-5 p-3 rounded-xl">
         <h3 className="text-white text-xl font-semibold">{title}</h3>
@@ -146,7 +154,11 @@ function BCard({ title, description }: TypeBCard) {
                   className="px-5 py-3 bg-white shadow rounded-xl"
                   onClick={() =>
                     minuteActive === 0
-                      ? alert("Please choose time")
+                      ? toast.warning("please choose the time first", {
+                          position: "top-right",
+                          theme: "colored",
+                          className: "font-semibold",
+                        })
                       : setPlay(!play)
                   }
                 >
