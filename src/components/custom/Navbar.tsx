@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LongIcon } from "@/utils";
 import ListItem from "./ListItem";
 import { FaBookJournalWhills, FaLungs } from "react-icons/fa6";
@@ -8,11 +8,40 @@ import { Menu, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BsSoundwave } from "react-icons/bs";
 import CustomButton from "./CustomButton";
+import { UserAuth } from "@/contexts/AuthContext";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { IoLogOut } from "react-icons/io5";
 
 const Navbar = () => {
   const location = useLocation();
   const activeLink = location.pathname.split("/").pop();
   const [activeNav, setActiveNav] = useState<boolean>(false);
+  const [openProfile, setOpenProfile] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const { user, logOut } = UserAuth();
+
+  const [avatarUrl, setAvatarUrl] = useState(
+    `/assets/avatar/avatar-img-${Math.floor(Math.random()*4)+1}.png`
+  );
+
+  useEffect(() => {
+    setAvatarUrl(
+      `/assets/avatar/avatar-img-${Math.floor(Math.random() * 4) + 1}.png`
+    );
+  }, []);
+
+  useEffect(() => {
+    setOpenProfile(false);
+  }, [activeLink]);
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate("/login");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <React.Fragment>
@@ -124,15 +153,44 @@ const Navbar = () => {
           />
         </div>
 
-        <div className="side-menu flex justify-center items-center space-x-3 lg:space-x-5">
-          <CustomButton
-            text="Register Now"
-            path="/login"
-            bgcolor="bg-white"
-            bordercolor="border-secondaryColor"
-            textcolor="text-mainColor"
-            customclass="hover:bg-mainColor hover:text-white transition duration-300"
-          />
+        <div className="relative side-menu flex justify-center items-center space-x-3 lg:space-x-5 mr-2">
+          {user !== null ? (
+            <>
+              <Avatar
+                className="cursor-pointer border-2 border-white ring-4 ring-mainColor"
+                onClick={() => setOpenProfile((prev) => !prev)}
+              >
+                <AvatarImage src={avatarUrl} />
+                <AvatarFallback>User Profile</AvatarFallback>
+              </Avatar>
+              {openProfile && (
+                <>
+                  <div className="absolute w-[180px] h-fit right-0 top-[120%] px-4 py-3 bg-bgPurpleDark rounded-lg ring-2 ring-mainColor">
+                    <div className="w-full">
+                      Welcome {user?.email?.split("@")[0]}!
+                    </div>
+                    <div className="w-full border-t-2 border-[#DADADA] mt-3 mb-2"></div>
+                    <div
+                      className="cursor-pointer flex items-center gap-2 mt-2 text-lg font-semibold"
+                      onClick={() => handleLogout()}
+                    >
+                      <IoLogOut />
+                      Logout
+                    </div>
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <CustomButton
+              text="Register Now"
+              path="/register"
+              bgcolor="bg-white"
+              bordercolor="border-secondaryColor"
+              textcolor="text-mainColor"
+              customclass="w-[120px] text-center sm:w-auto hover:bg-mainColor hover:text-white transition duration-300"
+            />
+          )}
         </div>
       </div>
     </React.Fragment>

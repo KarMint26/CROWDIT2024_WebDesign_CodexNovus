@@ -67,8 +67,103 @@
   }
   html {
     scroll-behavior: smooth !important;
+    overflow-x: hidden !important;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+
+  /* Scrollbar Style */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) hsla(186, 100%, 69%, 1) 100%;
+  }
+
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #691a72;
+    background: linear-gradient(90deg, #691a72, #a84db5);
+    background: -moz-linear-gradient(90deg, #691a72, #a84db5);
+    background: -webkit-linear-gradient(90deg, #691a72, #a84db5);
+  }
+
+  /* Chatbot */
+  .nav_style {
+    @apply w-full h-20 flex justify-between items-center py-3 container px-6 sm:px-12 lg:px-0;
+  }
+
+  .gbtn {
+    @apply py-[0.4rem] px-3 sm:px-5 sm:text-base text-sm flex justify-center items-center gap-2 text-center rounded-full border-[3.5px] border-slate-300 text-background bg-slate-300 hover:bg-background hover:text-slate-300 font-semibold transition ease-in-out cursor-pointer;
+  }
+
+  .text_purple {
+    @apply bg-clip-text text-transparent bg-gradient-to-tr from-secondaryColor to-mainColor;
+  }
+
+  .wrapper {
+    @apply flex justify-center items-center flex-col;
+  }
+
+  .wrapper-content {
+    @apply mt-12 container flex justify-between items-center lg:flex-row flex-col gap-3 px-6 sm:px-12 lg:px-0;
+  }
+
+  .start_btn {
+    @apply bg-mainColor gap-2 sm:gap-3 shadow px-4 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-xl text-white;
+  }
+
+  .about_button_smkdev {
+    @apply px-5 py-2 sm:py-3 text-white bg-mainColor rounded-lg text-sm sm:text-lg shadow;
+  }
+
+  .button-to-top {
+    @apply fixed bottom-5 right-5 text-center rounded-full w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center text-xl sm:text-2xl bg-mainColor text-white cursor-pointer;
+  }
+
+  .card-link {
+    @apply border border-slate-300 px-4 py-3 rounded-xl w-full bg-slate-900 flex justify-start items-center gap-4;
+  }
+
+  /* Loading */
+  .custom-loader {
+    width: 35px;
+    height: 35px;
+    --c: radial-gradient(farthest-side, #cc72d8 92%, #0000);
+    background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+      var(--c) 0 50%;
+    background-size: 8px 8px;
+    background-repeat: no-repeat;
+    animation: s8 1s infinite;
+    position: relative;
+  }
+  .custom-loader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: 3px;
+    background: repeating-conic-gradient(#0000 0 35deg, #cc72d8 0 90deg);
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - 3px),
+      #000 0
+    );
+    border-radius: 50%;
+  }
+
+  @keyframes s8 {
+    100% {
+      transform: rotate(0.5turn);
+    }
   }
 }
