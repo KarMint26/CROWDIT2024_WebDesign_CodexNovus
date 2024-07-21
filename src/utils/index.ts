@@ -23,6 +23,14 @@ import Mood5 from "/assets/soundscapes/moods/happy.png";
 import Mood6 from "/assets/soundscapes/moods/loneliness.png";
 import Mood7 from "/assets/soundscapes/moods/sad.png";
 import Mood8 from "/assets/soundscapes/moods/tired.png";
+import SoundImg1 from "/assets/soundscapes/sound-list-img/birdsong.png";
+import SoundImg2 from "/assets/soundscapes/sound-list-img/forest.png";
+import SoundImg3 from "/assets/soundscapes/sound-list-img/night-sound.png";
+import SoundImg4 from "/assets/soundscapes/sound-list-img/ocean-waves.png";
+import SoundImg5 from "/assets/soundscapes/sound-list-img/rain.png";
+import SoundImg6 from "/assets/soundscapes/sound-list-img/stream.png";
+import SoundImg7 from "/assets/soundscapes/sound-list-img/waterfall.png";
+import SoundImg8 from "/assets/soundscapes/sound-list-img/wind.png";
 
 export {
   LongIcon,
@@ -50,4 +58,12 @@ export {
   Mood8,
   heroB,
   tutorB,
+  SoundImg1,
+  SoundImg2,
+  SoundImg3,
+  SoundImg4,
+  SoundImg5,
+  SoundImg6,
+  SoundImg7,
+  SoundImg8,
 };

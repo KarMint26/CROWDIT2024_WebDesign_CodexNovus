@@ -1,4 +1,4 @@
-import { Mood1, Mood2, Mood3, Mood4, Mood5, Mood6, Mood7, Mood8 } from ".";
+import { Mood1, Mood2, Mood3, Mood4, Mood5, Mood6, Mood7, Mood8, SoundImg1, SoundImg2, SoundImg3, SoundImg4, SoundImg5, SoundImg6, SoundImg7, SoundImg8 } from ".";
 
 export const listTextTutorialDJ = [
   "Write down the details of your dream",
@@ -189,5 +189,64 @@ export const dataCardBreath = [
     description:
       "The 4-7-8 Breathing Technique, developed by Dr. Andrew Weil, is a simple yet powerful relaxation exercise. It involves inhaling through the nose for 4 seconds, holding the breath for 7 seconds, and exhaling slowly through the mouth for 8 seconds. This practice helps calm the nervous system and reduce stress by promoting oxygen exchange and regulating breath. The technique can improve sleep quality, reduce anxiety, and lower blood pressure by encouraging a slower, more deliberate breathing pattern. Additionally, it can help manage cravings and control emotional responses, making it a valuable tool for overall mental and physical health.",
     timeRanges: datas478,
+  },
+];
+
+export const soundList = [
+  {
+    id: 1,
+    name: "Bird Song",
+    img: SoundImg1,
+    delay: 50,
+    audio: "/assets/audio/birdsong.mp3"
+  },
+  {
+    id: 2,
+    name: "Forest Lullaby",
+    img: SoundImg2,
+    delay: 150,
+    audio: "/assets/audio/forest-lullaby.mp3"
+  },
+  {
+    id: 3,
+    name: "Night Sound",
+    img: SoundImg3,
+    delay: 250,
+    audio: "/assets/audio/night-sound.mp3"
+  },
+  {
+    id: 4,
+    name: "Ocean Waves",
+    img: SoundImg4,
+    delay: 350,
+    audio: "/assets/audio/ocean-waves.mp3"
+  },
+  {
+    id: 5,
+    name: "Sleepy Rain",
+    img: SoundImg5,
+    delay: 450,
+    audio: "/assets/audio/sleepy-rain.mp3"
+  },
+  {
+    id: 6,
+    name: "Stream",
+    img: SoundImg6,
+    delay: 550,
+    audio: "/assets/audio/stream.mp3"
+  },
+  {
+    id: 7,
+    name: "Waterfall",
+    img: SoundImg7,
+    delay: 650,
+    audio: "/assets/audio/waterfall.mp3"
+  },
+  {
+    id: 8,
+    name: "Wind",
+    img: SoundImg8,
+    delay: 750,
+    audio: "/assets/audio/wind.mp3"
   },
 ];

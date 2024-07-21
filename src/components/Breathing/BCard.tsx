@@ -12,7 +12,7 @@ function BCard({ title, description, delay, timeRanges }: TypeBCard) {
   const [minuteActive, setMinuteActive] = useState<number>(0);
   const [tabActive, setTabActive] = useState<string>("audio");
   const [play, setPlay] = useState<boolean>(false);
-  const [audio] = useState(new Audio("/audio/breathing.mp3"));
+  const [audio] = useState(new Audio("/assets/audio/breathing.mp3"));
   const [time, setTime] = useState(0);
   const [textDynamic, setTextDynamic] = useState<string>(
     "Find a comfortable position"

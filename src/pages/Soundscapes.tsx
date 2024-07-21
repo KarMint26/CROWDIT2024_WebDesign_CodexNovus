@@ -4,16 +4,28 @@ import DefaultView from "@/components/custom/DefaultView";
 import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
 import { BsSoundwave } from "react-icons/bs";
 import { HeroSoundscapes } from "@/utils";
-import { listMood } from "@/utils/data";
+import { listMood, soundList } from "@/utils/data";
 import MoodCard from "@/components/soundscapes/MoodCard";
+import SoundCard from "@/components/soundscapes/SoundCard";
 
 const Soundscapes = () => {
   const [moodActive, setMoodActive] = useState<string>("Anxious");
+  const [titleSound, setTitleSound] = useState<string>("Bird Song");
+  const [isPlay, setIsPlay] = useState<boolean>(false);
 
   const handleChangeMood = (activeMood: string) => {
     setMoodActive(activeMood);
+  };
+
+  const handleActiveSound = (title: string) => {
+    setIsPlay(true);
+    setTitleSound(title);
   }
-  
+
+  const nonaktifSound = () => {
+    setIsPlay(false);
+  }
+
   useEffect(() => {
     AOS.init({
       once: true,
@@ -85,7 +97,7 @@ const Soundscapes = () => {
         </h1>
         <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-8 gap-3 sm:gap-5 place-items-center">
           {listMood.map((data) => (
-            <MoodCard 
+            <MoodCard
               key={data.id}
               moodImg={data.numberImg}
               altImg={`mood-img-${data.id}`}
@@ -93,6 +105,32 @@ const Soundscapes = () => {
               delay={data.delay}
               activeMood={moodActive}
               handleChangeMood={handleChangeMood}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Sounds List */}
+      <div className="sound_list flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4">
+        <h1
+          data-aos="fade-right"
+          data-aos-delay="150"
+          className="font-semibold text-xl sm:text-3xl lg:text-5xl"
+        >
+          Choose your preferred audio
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 lg:gap-8 place-items-center mt-2 sm:mt-3">
+          {soundList.map((data) => (
+            <SoundCard 
+              key={data.id}
+              activeTitle={titleSound}
+              isPlay={isPlay}
+              audio={data.audio}
+              imgS={data.img}
+              title={data.name}
+              delay={data.delay}
+              handlePlay={handleActiveSound}
+              handlePause={nonaktifSound}
             />
           ))}
         </div>

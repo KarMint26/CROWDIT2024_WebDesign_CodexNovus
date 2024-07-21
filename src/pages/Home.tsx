@@ -306,41 +306,45 @@ const Home = () => {
           </div>
 
           <div className="-mx-4 flex flex-wrap">
-            <div
-              data-aos="zoom-in-right"
-              data-aos-delay="150"
-              className="w-full px-4 lg:w-1/2"
-            >
-              <AccordionItem
-                header="What is the nocturn website?"
-                text="The nocturn website is a website that is useful for those who are sleep deprived or have poor sleep health."
-              />
-              <AccordionItem
-                header="Can everyone use this website?"
-                text="Of course all users from children to the elderly."
-              />
-              <AccordionItem
-                header="How does this website help you sleep?"
-                text="This website features music soundscapes that soothe and relax you so that you can comfortably fall asleep."
-              />
+            <div className="w-full px-4 lg:w-1/2">
+              <div data-aos="zoom-in-down" data-aos-delay="50">
+                <AccordionItem
+                  header="What is the nocturn website?"
+                  text="The nocturn website is a website that is useful for those who are sleep deprived or have poor sleep health."
+                />
+              </div>
+              <div data-aos="zoom-in-down" data-aos-delay="200">
+                <AccordionItem
+                  header="Can everyone use this website?"
+                  text="Of course all users from children to the elderly."
+                />
+              </div>
+              <div data-aos="zoom-in-down" data-aos-delay="350">
+                <AccordionItem
+                  header="How does this website help you sleep?"
+                  text="This website features music soundscapes that soothe and relax you so that you can comfortably fall asleep."
+                />
+              </div>
             </div>
-            <div
-              data-aos="zoom-in-left"
-              data-aos-delay="250"
-              className="w-full px-4 lg:w-1/2"
-            >
-              <AccordionItem
-                header="How does the soundscapes feature work?"
-                text="The soundscapes feature works by displaying a list of soothing music, which you can listen to until you fall asleep."
-              />
-              <AccordionItem
-                header="What are the features of this website?"
-                text="This website has 3 main features: recording your dreams and interpreting them, listening to soothing music, and breathing techniques to relax."
-              />
-              <AccordionItem
-                header="Can the dream results be interpreted?"
-                text="Of course, your dreams can be interpreted on the “Dream Journal” page or feature."
-              />
+            <div className="w-full px-4 lg:w-1/2">
+              <div data-aos="zoom-in-down" data-aos-delay="500">
+                <AccordionItem
+                  header="How does the soundscapes feature work?"
+                  text="The soundscapes feature works by displaying a list of soothing music, which you can listen to until you fall asleep."
+                />
+              </div>
+              <div data-aos="zoom-in-down" data-aos-delay="650">
+                <AccordionItem
+                  header="What are the features of this website?"
+                  text="This website has 3 main features: recording your dreams and interpreting them, listening to soothing music, and breathing techniques to relax."
+                />
+              </div>
+              <div data-aos="zoom-in-down" data-aos-delay="800">
+                <AccordionItem
+                  header="Can the dream results be interpreted?"
+                  text="Of course, your dreams can be interpreted on the “Dream Journal” page or feature."
+                />
+              </div>
             </div>
           </div>
         </div>
