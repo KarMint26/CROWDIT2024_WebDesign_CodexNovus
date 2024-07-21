@@ -1,16 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import TextTitle from "../custom/TextTitle";
 import BCard from "./BCard";
 import AOS from "aos";
 import { dataCardBreath, delays } from "@/utils/data";
 
 function BAudios() {
+  const [active, setActive] = useState<string>("");
+
   useEffect(() => {
     AOS.init({
       once: true,
       duration: 1500,
     });
   }, []);
+
   return (
     <>
       <div
@@ -30,6 +33,8 @@ function BAudios() {
             description={item.description}
             timeRanges={item.timeRanges}
             delay={250 + delays[i]}
+            active={active}
+            setActive={setActive}
           />
         ))}
       </div>

@@ -1,4 +1,21 @@
-import { Mood1, Mood2, Mood3, Mood4, Mood5, Mood6, Mood7, Mood8, SoundImg1, SoundImg2, SoundImg3, SoundImg4, SoundImg5, SoundImg6, SoundImg7, SoundImg8 } from ".";
+import {
+  Mood1,
+  Mood2,
+  Mood3,
+  Mood4,
+  Mood5,
+  Mood6,
+  Mood7,
+  Mood8,
+  SoundImg1,
+  SoundImg2,
+  SoundImg3,
+  SoundImg4,
+  SoundImg5,
+  SoundImg6,
+  SoundImg7,
+  SoundImg8,
+} from ".";
 
 export const listTextTutorialDJ = [
   "Write down the details of your dream",
@@ -157,9 +174,17 @@ for (let i = 0; i < 300; i += 5) {
 // data for: 4-7-8 breathing
 export const datas478: { start: number; end: number; text: string }[] = [];
 for (let i = 0; i < 300; i += 19) {
-  datas478.push({ start: i, end: i + 3, text: "Tarik Napas" });
-  datas478.push({ start: i + 4, end: i + 10, text: "Tahan Napas" });
-  datas478.push({ start: i + 11, end: i + 18, text: "Buang Napas" });
+  datas478.push({
+    start: i,
+    end: i + 3,
+    text: "inhale through the nose, squeeze your abs",
+  });
+  datas478.push({ start: i + 4, end: i + 10, text: "hold your breath" });
+  datas478.push({
+    start: i + 11,
+    end: i + 18,
+    text: "exhale through your nose, let your belly",
+  });
 }
 export const dataCardBreath = [
   {
@@ -198,55 +223,55 @@ export const soundList = [
     name: "Bird Song",
     img: SoundImg1,
     delay: 50,
-    audio: "/assets/audio/birdsong.mp3"
+    audio: "/assets/audio/birdsong.mp3",
   },
   {
     id: 2,
     name: "Forest Lullaby",
     img: SoundImg2,
     delay: 150,
-    audio: "/assets/audio/forest-lullaby.mp3"
+    audio: "/assets/audio/forest-lullaby.mp3",
   },
   {
     id: 3,
     name: "Night Sound",
     img: SoundImg3,
     delay: 250,
-    audio: "/assets/audio/night-sound.mp3"
+    audio: "/assets/audio/night-sound.mp3",
   },
   {
     id: 4,
     name: "Ocean Waves",
     img: SoundImg4,
     delay: 350,
-    audio: "/assets/audio/ocean-waves.mp3"
+    audio: "/assets/audio/ocean-waves.mp3",
   },
   {
     id: 5,
     name: "Sleepy Rain",
     img: SoundImg5,
     delay: 450,
-    audio: "/assets/audio/sleepy-rain.mp3"
+    audio: "/assets/audio/sleepy-rain.mp3",
   },
   {
     id: 6,
     name: "Stream",
     img: SoundImg6,
     delay: 550,
-    audio: "/assets/audio/stream.mp3"
+    audio: "/assets/audio/stream.mp3",
   },
   {
     id: 7,
     name: "Waterfall",
     img: SoundImg7,
     delay: 650,
-    audio: "/assets/audio/waterfall.mp3"
+    audio: "/assets/audio/waterfall.mp3",
   },
   {
     id: 8,
     name: "Wind",
     img: SoundImg8,
     delay: 750,
-    audio: "/assets/audio/wind.mp3"
+    audio: "/assets/audio/wind.mp3",
   },
 ];

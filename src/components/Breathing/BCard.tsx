@@ -8,7 +8,14 @@ import { SiApplemusic } from "react-icons/si";
 import { toast } from "react-toastify";
 import AOS from "aos";
 
-function BCard({ title, description, delay, timeRanges }: TypeBCard) {
+function BCard({
+  title,
+  description,
+  delay,
+  setActive,
+  active,
+  timeRanges,
+}: TypeBCard) {
   const [minuteActive, setMinuteActive] = useState<number>(0);
   const [tabActive, setTabActive] = useState<string>("audio");
   const [play, setPlay] = useState<boolean>(false);
@@ -21,8 +28,9 @@ function BCard({ title, description, delay, timeRanges }: TypeBCard) {
   const stopAudio = () => {
     setPlay(false);
     setMinuteActive(0);
-    setTime(-1);
+    setTime(0);
     audio.currentTime = 0;
+    audio.pause();
   };
 
   useEffect(() => {
@@ -30,7 +38,7 @@ function BCard({ title, description, delay, timeRanges }: TypeBCard) {
       once: true,
       duration: 1500,
     });
-    if (play) {
+    if (play && active === title) {
       audio.play();
       const interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
@@ -67,9 +75,9 @@ function BCard({ title, description, delay, timeRanges }: TypeBCard) {
         audio.removeEventListener("timeupdate", () => {});
       };
     } else {
-      audio.pause();
+      stopAudio();
     }
-  }, [audio, play, time, minuteActive]);
+  }, [audio, play, time, active, setActive, minuteActive]);
 
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
@@ -80,6 +88,7 @@ function BCard({ title, description, delay, timeRanges }: TypeBCard) {
   };
 
   const handlePlay = (m: number) => {
+    setActive(title);
     audio.currentTime = 0;
     setPlay(true);
     setMinuteActive(m);

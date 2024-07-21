@@ -14,6 +14,8 @@ export type TypeBCard = {
   title: string;
   description: string;
   delay: number;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
+  active: string;
   timeRanges: { start: number; end: number; text: string }[];
 };
 
