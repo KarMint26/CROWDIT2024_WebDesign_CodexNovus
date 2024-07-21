@@ -8,6 +8,9 @@ import { listMood, soundList } from "@/utils/data";
 import MoodCard from "@/components/soundscapes/MoodCard";
 import SoundCard from "@/components/soundscapes/SoundCard";
 import { FaCirclePause, FaCirclePlay, FaForward } from "react-icons/fa6";
+import { LuArrowUpToLine } from "react-icons/lu";
+import { RiRobot2Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Soundscapes = () => {
   const [moodActive, setMoodActive] = useState<string>("Anxious");
@@ -174,7 +177,7 @@ const Soundscapes = () => {
 
       {/* Audio Player */}
       <div
-        className={`fixed flex items-center top-20 sm:top-auto sm:bottom-5 right-[50%] translate-x-[50%] bg-bgPurpleDark border-2 lg:border-4 border-gray-300 w-[80%] sm:w-fit p-3 sm:p-4 lg:p-5 px-3 sm:px-4 lg:px-7 rounded-full gap-3 sm:gap-4 lg:gap-5 transition-all duration-300 ${
+        className={`fixed flex items-center justify-center bottom-5 right-[50%] translate-x-[50%] bg-bgPurpleDark border-2 lg:border-4 border-gray-300 w-[80%] sm:w-[70%] lg:w-[50%] p-3 sm:p-4 lg:p-5 px-3 sm:px-4 lg:px-7 rounded-full gap-3 sm:gap-4 lg:gap-7 transition-all duration-300 ${
           isPlay ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
@@ -182,15 +185,15 @@ const Soundscapes = () => {
           <img
             src={soundImg}
             alt="sound-img"
-            className="w-14 sm:w-20 rounded-lg"
+            className="w-14 sm:w-28 lg:w-36 rounded-lg"
           />
-          <p className="text-[0.7rem] sm:text-base font-normal">{titleSound}</p>
+          <p className="text-[0.7rem] sm:text-xl lg:text-2xl font-normal">{titleSound}</p>
         </div>
-        <div className="flex flex-col justify-center items-center gap-3 sm:gap-4">
-          <h3 className="font-semibold text-base sm:text-xl">
+        <div className="flex flex-col justify-center items-center gap-3 sm:gap-4 lg:gap-6">
+          <h3 className="font-semibold text-base sm:text-3xl lg:text-4xl">
             Nocturn Soundscapes
           </h3>
-          <div className="flex justify-center items-center gap-4 sm:gap-5 lg:gap-6 text-xl sm:text-2xl">
+          <div className="flex justify-center items-center gap-4 sm:gap-5 lg:gap-6 text-xl sm:text-3xl lg:text-4xl">
             <FaForward
               className="rotate-180 cursor-pointer"
               onClick={() => prevSound()}
@@ -206,6 +209,27 @@ const Soundscapes = () => {
             <FaForward className="cursor-pointer" onClick={() => nextSound()} />
           </div>
         </div>
+      </div>
+
+      {/* Button Back To Top */}
+      <div className={`fixed ${isPlay ? 'bottom-[6.5rem]' : 'bottom-7'} transition-all duration-300 sm:bottom-5 right-5 flex flex-row items-center justify-center gap-3 sm:gap-5 z-20`}>
+        <div
+          onClick={() => {
+            window?.scrollTo({
+              top: 0,
+            });
+          }}
+          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
+        >
+          <LuArrowUpToLine />
+        </div>
+      </div>
+
+      {/* Chatbot Button */}
+      <div className={`fixed ${isPlay ? 'bottom-[10rem]' : 'bottom-[5.5rem]'} transition-all duration-300 sm:bottom-20 right-5 flex flex-row items-center justify-center gap-3 sm:gap-5 z-20`}>
+        <Link to="/chatbot" className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor">
+          <RiRobot2Fill />
+        </Link>
       </div>
     </React.Fragment>
   );
