@@ -7,24 +7,59 @@ import { HeroSoundscapes } from "@/utils";
 import { listMood, soundList } from "@/utils/data";
 import MoodCard from "@/components/soundscapes/MoodCard";
 import SoundCard from "@/components/soundscapes/SoundCard";
+import { FaCirclePause, FaCirclePlay, FaForward } from "react-icons/fa6";
 
 const Soundscapes = () => {
   const [moodActive, setMoodActive] = useState<string>("Anxious");
   const [titleSound, setTitleSound] = useState<string>("Bird Song");
+  const [soundImg, setSoundImg] = useState<any>(
+    "/assets/soundscapes/sound-list-img/birdsong.png"
+  );
+  const [position, setPosition] = useState<number>(0);
   const [isPlay, setIsPlay] = useState<boolean>(false);
 
   const handleChangeMood = (activeMood: string) => {
     setMoodActive(activeMood);
   };
 
-  const handleActiveSound = (title: string) => {
+  const handleActiveSound = (title: string, soundImg: any, pos: number) => {
     setIsPlay(true);
     setTitleSound(title);
-  }
+    setSoundImg(soundImg);
+    setPosition(pos);
+  };
 
   const nonaktifSound = () => {
     setIsPlay(false);
-  }
+  };
+
+  const nextSound = () => {
+    if (position === 7) {
+      const nextSd = soundList[position - 7];
+      setTitleSound(nextSd.name);
+      setSoundImg(nextSd.img);
+      setPosition(position - 7);
+    } else {
+      const nextSd = soundList[position + 1];
+      setTitleSound(nextSd.name);
+      setSoundImg(nextSd.img);
+      setPosition(position + 1);
+    }
+  };
+
+  const prevSound = () => {
+    if (position === 0) {
+      const prevSd = soundList[position + 7];
+      setTitleSound(prevSd.name);
+      setSoundImg(prevSd.img);
+      setPosition(position + 7);
+    } else {
+      const prevSd = soundList[position - 1];
+      setTitleSound(prevSd.name);
+      setSoundImg(prevSd.img);
+      setPosition(position - 1);
+    }
+  };
 
   useEffect(() => {
     AOS.init({
@@ -121,8 +156,9 @@ const Soundscapes = () => {
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 lg:gap-8 place-items-center mt-2 sm:mt-3">
           {soundList.map((data) => (
-            <SoundCard 
+            <SoundCard
               key={data.id}
+              id={data.id}
               activeTitle={titleSound}
               isPlay={isPlay}
               audio={data.audio}
@@ -133,6 +169,42 @@ const Soundscapes = () => {
               handlePause={nonaktifSound}
             />
           ))}
+        </div>
+      </div>
+
+      {/* Audio Player */}
+      <div
+        className={`fixed flex items-center top-20 sm:top-auto sm:bottom-5 right-[50%] translate-x-[50%] bg-bgPurpleDark border-2 lg:border-4 border-gray-300 w-[80%] sm:w-fit p-3 sm:p-4 lg:p-5 px-3 sm:px-4 lg:px-7 rounded-full gap-3 sm:gap-4 lg:gap-5 transition-all duration-300 ${
+          isPlay ? "scale-100 opacity-100" : "scale-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col justify-center items-center gap-2 sm:gap-3 h-fit px-1">
+          <img
+            src={soundImg}
+            alt="sound-img"
+            className="w-14 sm:w-20 rounded-lg"
+          />
+          <p className="text-[0.7rem] sm:text-base font-normal">{titleSound}</p>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-3 sm:gap-4">
+          <h3 className="font-semibold text-base sm:text-xl">
+            Nocturn Soundscapes
+          </h3>
+          <div className="flex justify-center items-center gap-4 sm:gap-5 lg:gap-6 text-xl sm:text-2xl">
+            <FaForward
+              className="rotate-180 cursor-pointer"
+              onClick={() => prevSound()}
+            />
+            {isPlay ? (
+              <FaCirclePause
+                className="cursor-pointer"
+                onClick={() => nonaktifSound()}
+              />
+            ) : (
+              <FaCirclePlay className="cursor-pointer" />
+            )}
+            <FaForward className="cursor-pointer" onClick={() => nextSound()} />
+          </div>
         </div>
       </div>
     </React.Fragment>

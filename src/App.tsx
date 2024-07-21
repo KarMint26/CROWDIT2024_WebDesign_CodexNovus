@@ -75,16 +75,14 @@ const App = () => {
       )}
       {pathname === "login" ||
       pathname === "register" ||
-      pathname === "chatbot" ||
-      pathname === "soundscapes" ? (
+      pathname === "chatbot" ? (
         ""
       ) : (
         <BtnBackTop />
       )}
       {pathname === "login" ||
       pathname === "register" ||
-      pathname === "chatbot" ||
-      pathname === "soundscapes" ? (
+      pathname === "chatbot" ? (
         ""
       ) : (
         <IconChatbot />

@@ -3,17 +3,19 @@ import AOS from "aos";
 import { FaCirclePause, FaCirclePlay } from "react-icons/fa6";
 
 type soundCard = {
+  id: number;
   imgS: any;
   title: string;
   activeTitle: string;
   isPlay: boolean;
   audio: string;
   delay: number;
-  handlePlay: (title: string) => void;
+  handlePlay: (title: string, soundImg: any, pos: number) => void;
   handlePause: () => void;
 };
 
 const SoundCard = ({
+  id,
   imgS,
   title,
   activeTitle,
@@ -71,7 +73,7 @@ const SoundCard = ({
             />
           ) : (
             <FaCirclePlay
-              onClick={() => handlePlay(title)}
+              onClick={() => handlePlay(title, imgS, id-1)}
               className="text-xl sm:text-2xl cursor-pointer"
             />
           )}
