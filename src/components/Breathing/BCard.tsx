@@ -118,7 +118,7 @@ function BCard({ title, description, delay, timeRanges }: TypeBCard) {
       {tabActive === "audio" ? (
         <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-5">
           {/* Choose Time */}
-          <div className="p-3 lg:w-32 lg:h-40 mt-3 bg-white rounded-xl gap-1 justify-between flex flex-row lg:flex-col">
+          <div className="p-3 w-full md:w-32 lg:w-28 lg:h-40 mt-3 bg-white rounded-xl gap-1 justify-between flex flex-row lg:flex-col">
             <ButtonTime
               text="1"
               minuteActive={minuteActive}
