@@ -84,8 +84,8 @@ const Home = () => {
         className="w-full h-fit bg-bgPurpleDark flex items-start justify-start flex-col"
       >
         <img src={WaveBlack} alt="wave-black" className="w-full" />
-        <div className="py-4 px-5 sm:px-6 lg:px-8">
-          <div className="w-full h-fit">
+        <div className="py-4 px-5 sm:px-6 lg:px-8 w-full">
+          <div className="w-full h-fit containers">
             <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h1
@@ -135,8 +135,8 @@ const Home = () => {
         className="w-full h-fit flex items-start justify-start flex-col"
       >
         <img src={WavePurple} alt="wave-black" className="w-full" />
-        <div className="py-4 px-5 sm:px-6 lg:px-8">
-          <div className="w-full h-fit">
+        <div className="py-4 px-5 sm:px-6 lg:px-8 w-full">
+          <div className="w-full h-fit containers">
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h1
@@ -234,8 +234,8 @@ const Home = () => {
         id="trychatbot"
         className="w-full h-fit flex items-start justify-start flex-col"
       >
-        <div className="py-4 px-5 sm:px-6 lg:px-8">
-          <div className="w-full h-fit">
+        <div className="py-4 px-5 sm:px-6 lg:px-8 w-full">
+          <div className="w-full h-fit containers">
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h1

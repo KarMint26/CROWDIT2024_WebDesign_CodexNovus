@@ -98,6 +98,10 @@
     background: -webkit-linear-gradient(90deg, #691a72, #a84db5);
   }
 
+  .containers {
+    @apply w-full max-w-[1536px] m-auto;
+  }
+
   /* Chatbot */
   .nav_style {
     @apply w-full h-20 flex justify-between items-center py-3 container px-6 sm:px-12 lg:px-0;

@@ -125,7 +125,7 @@ const Soundscapes = () => {
       </DefaultView>
 
       {/* Mood List */}
-      <div className="mood_list_container flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4">
+      <div className="mood_list_container containers flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4">
         <h1
           data-aos="fade-right"
           data-aos-delay="100"
@@ -149,7 +149,7 @@ const Soundscapes = () => {
       </div>
 
       {/* Sounds List */}
-      <div className="sound_list flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4">
+      <div className="sound_list containers flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4 md:mb-10">
         <h1
           data-aos="fade-right"
           data-aos-delay="150"
@@ -187,7 +187,9 @@ const Soundscapes = () => {
             alt="sound-img"
             className="w-14 sm:w-28 lg:w-36 rounded-lg"
           />
-          <p className="text-[0.7rem] sm:text-xl lg:text-2xl font-normal">{titleSound}</p>
+          <p className="text-[0.7rem] sm:text-xl lg:text-2xl font-normal">
+            {titleSound}
+          </p>
         </div>
         <div className="flex flex-col justify-center items-center gap-3 sm:gap-4 lg:gap-6">
           <h3 className="font-semibold text-base sm:text-3xl lg:text-4xl">
@@ -212,7 +214,11 @@ const Soundscapes = () => {
       </div>
 
       {/* Button Back To Top */}
-      <div className={`fixed ${isPlay ? 'bottom-[6.5rem]' : 'bottom-7'} transition-all duration-300 sm:bottom-5 right-5 flex flex-row items-center justify-center gap-3 sm:gap-5 z-20`}>
+      <div
+        className={`fixed ${
+          isPlay ? "bottom-[6.5rem]" : "bottom-7"
+        } transition-all duration-300 sm:bottom-5 right-5 flex flex-row items-center justify-center gap-3 sm:gap-5 z-20`}
+      >
         <div
           onClick={() => {
             window?.scrollTo({
@@ -226,8 +232,15 @@ const Soundscapes = () => {
       </div>
 
       {/* Chatbot Button */}
-      <div className={`fixed ${isPlay ? 'bottom-[10rem]' : 'bottom-[5.5rem]'} transition-all duration-300 sm:bottom-20 right-5 flex flex-row items-center justify-center gap-3 sm:gap-5 z-20`}>
-        <Link to="/chatbot" className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor">
+      <div
+        className={`fixed ${
+          isPlay ? "bottom-[10rem]" : "bottom-[5.5rem]"
+        } transition-all duration-300 sm:bottom-20 right-5 flex flex-row items-center justify-center gap-3 sm:gap-5 z-20`}
+      >
+        <Link
+          to="/chatbot"
+          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
+        >
           <RiRobot2Fill />
         </Link>
       </div>

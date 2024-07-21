@@ -12,7 +12,7 @@ const DefaultView = ({ children }: { children: React.ReactNode }) => {
           pathname === "login" || pathname === "register"
             ? "py-4 sm:py-6 lg:py-8"
             : "pt-20 lg:pt-24 pb-4"
-        } px-5 sm:px-6 lg:px-8`}
+        } px-5 sm:px-6 lg:px-8 w-full max-w-[1536px] m-auto`}
       >
         {children}
       </div>
